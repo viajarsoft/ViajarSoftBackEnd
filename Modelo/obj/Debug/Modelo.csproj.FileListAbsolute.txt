@@ -1,0 +1,9 @@
+D:\WebApiDemoFuncionando\C#\Modelo\bin\Debug\Modelo.dll
+D:\WebApiDemoFuncionando\C#\Modelo\bin\Debug\Modelo.pdb
+D:\WebApiDemoFuncionando\C#\Modelo\obj\Debug\Modelo.dll
+D:\WebApiDemoFuncionando\C#\Modelo\obj\Debug\Modelo.pdb
+D:\WebApiDemoFuncionando\C#\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\Modelo\bin\Debug\Modelo.dll
+C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\Modelo\obj\Debug\Modelo.dll
+C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\Modelo\obj\Debug\Modelo.pdb

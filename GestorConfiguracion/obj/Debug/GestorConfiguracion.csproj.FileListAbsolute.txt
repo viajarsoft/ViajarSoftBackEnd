@@ -1,0 +1,12 @@
+D:\WebApiDemoFuncionando\C#\GestorConfiguracion\bin\Debug\GestorConfiguracion.dll
+D:\WebApiDemoFuncionando\C#\GestorConfiguracion\bin\Debug\GestorConfiguracion.pdb
+D:\WebApiDemoFuncionando\C#\GestorConfiguracion\obj\Debug\GestorConfiguracion.AppSettings.resources
+D:\WebApiDemoFuncionando\C#\GestorConfiguracion\obj\Debug\GestorConfiguracion.csproj.GenerateResource.Cache
+D:\WebApiDemoFuncionando\C#\GestorConfiguracion\obj\Debug\GestorConfiguracion.dll
+D:\WebApiDemoFuncionando\C#\GestorConfiguracion\obj\Debug\GestorConfiguracion.pdb
+C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\GestorConfiguracion\bin\Debug\GestorConfiguracion.dll
+C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\GestorConfiguracion\bin\Debug\GestorConfiguracion.pdb
+C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\GestorConfiguracion\obj\Debug\GestorConfiguracion.AppSettings.resources
+C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\GestorConfiguracion\obj\Debug\GestorConfiguracion.csproj.GenerateResource.Cache
+C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\GestorConfiguracion\obj\Debug\GestorConfiguracion.dll
+C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\GestorConfiguracion\obj\Debug\GestorConfiguracion.pdb

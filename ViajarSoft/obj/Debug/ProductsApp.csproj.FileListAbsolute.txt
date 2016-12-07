@@ -1,0 +1,72 @@
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\ProductsApp.dll.config
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\ProductsApp.dll
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\ProductsApp.pdb
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\Newtonsoft.Json.dll
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\System.Net.Http.Formatting.dll
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\System.Web.Http.dll
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\System.Web.Http.WebHost.dll
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\Newtonsoft.Json.xml
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\System.Net.Http.Formatting.xml
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\System.Web.Http.xml
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\System.Web.Http.WebHost.xml
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\obj\Debug\ProductsApp.csprojResolveAssemblyReference.cache
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\obj\Debug\ProductsApp.dll
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\obj\Debug\ProductsApp.pdb
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\RestSharePoint.dll
+C:\Users\cvalencia\Downloads\Getting Started with ASP.NET Web API (Tutorial Sample)\C#\ProductsApp\bin\RestSharePoint.pdb
+D:\WebApiDemoFuncionando\C#\ProductsApp\obj\Debug\ProductsApp.csprojResolveAssemblyReference.cache
+D:\WebApiDemoFuncionando\C#\ProductsApp\obj\Debug\ProductsApp.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\obj\Debug\ProductsApp.pdb
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\ProductsApp.dll.config
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\ProductsApp.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\ProductsApp.pdb
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Newtonsoft.Json.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Net.Http.Formatting.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.Http.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.Http.WebHost.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Newtonsoft.Json.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Net.Http.Formatting.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.Http.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.Http.WebHost.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Modelo.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Modelo.pdb
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Practices.ServiceLocation.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Practices.Unity.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Unity.WebApi.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Practices.ServiceLocation.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Practices.Unity.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Practices.Unity.Configuration.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Practices.Unity.Mvc.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Web.Infrastructure.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.Helpers.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.Mvc.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.Razor.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.WebPages.Deployment.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.WebPages.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.WebPages.Razor.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\WebActivatorEx.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Microsoft.Practices.Unity.Mvc.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.Helpers.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.Mvc.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.Razor.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.WebPages.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.WebPages.Deployment.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\System.Web.WebPages.Razor.xml
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\GestorNegocio.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\InterfasesNegocio.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\InterfasesRepositorio.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\GestorConfiguracion.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Repositorio.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\RestSharePoint.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\EmuSharePoint.dll
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\GestorNegocio.pdb
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\InterfasesNegocio.pdb
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\InterfasesRepositorio.pdb
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\GestorConfiguracion.pdb
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\Repositorio.pdb
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\RestSharePoint.pdb
+D:\WebApiDemoFuncionando\C#\ProductsApp\bin\EmuSharePoint.pdb
