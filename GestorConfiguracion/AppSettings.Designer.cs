@@ -61,6 +61,15 @@ namespace GestorConfiguracion {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a conexion.
+        /// </summary>
+        internal static string conexion {
+            get {
+                return ResourceManager.GetString("conexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a repositorio.
         /// </summary>
         internal static string repositorio {

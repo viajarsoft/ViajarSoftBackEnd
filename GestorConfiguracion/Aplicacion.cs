@@ -18,5 +18,10 @@ namespace GestorConfiguracion
         {
             return ConfigurationManager.AppSettings[AppSettings.tokenPruebas];
         }
+
+        public static string ObtenerConexion()
+        {
+            return ConfigurationManager.ConnectionStrings[AppSettings.conexion].ConnectionString;
+        }
     }
 }

@@ -43,6 +43,12 @@
     <Compile Include="Operacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestorConfiguracion\GestorConfiguracion.csproj">
+      <Project>{076791f4-61e5-40a8-83c3-80a628450427}</Project>
+      <Name>GestorConfiguracion</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

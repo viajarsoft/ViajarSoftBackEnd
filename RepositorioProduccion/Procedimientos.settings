@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RepositorioProduccion" GeneratedClassName="Procedimientos">
+  <Profiles />
+  <Settings>
+    <Setting Name="sp_CrearToken" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sp_CrearToken</Value>
+    </Setting>
+    <Setting Name="sp_ObtenerTokenPorUsuario" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sp_ObtenerTokenPorUsuario</Value>
+    </Setting>
+    <Setting Name="sp_ObtenerTokenPorToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sp_ObtenerTokenPorToken</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

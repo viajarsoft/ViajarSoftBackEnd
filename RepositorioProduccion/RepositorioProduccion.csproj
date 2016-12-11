@@ -42,9 +42,18 @@
   <ItemGroup>
     <Compile Include="GestorFactura.cs" />
     <Compile Include="GestorSeguridad.cs" />
+    <Compile Include="Procedimientos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Procedimientos.settings</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GestorDB\GestorDB.csproj">
+      <Project>{258d4f3c-703e-421d-aac5-51c1e6184750}</Project>
+      <Name>GestorDB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InterfasesRepositorio\InterfasesRepositorio.csproj">
       <Project>{3823f788-1f02-47a1-8105-299b34f82f99}</Project>
       <Name>InterfasesRepositorio</Name>
@@ -53,6 +62,13 @@
       <Project>{31e9af31-c54c-427b-8f9f-48496b5eac83}</Project>
       <Name>Modelo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Procedimientos.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Procedimientos.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
