@@ -12,10 +12,3 @@ C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\InterfasesRepositorio\bin\Debug
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\InterfasesRepositorio\obj\Debug\InterfasesRepositorio.csprojResolveAssemblyReference.cache
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\InterfasesRepositorio\obj\Debug\InterfasesRepositorio.dll
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\InterfasesRepositorio\obj\Debug\InterfasesRepositorio.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesRepositorio\bin\Debug\InterfasesRepositorio.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesRepositorio\bin\Debug\InterfasesRepositorio.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesRepositorio\bin\Debug\Modelo.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesRepositorio\bin\Debug\Modelo.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesRepositorio\obj\Debug\InterfasesRepositorio.csprojResolveAssemblyReference.cache
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesRepositorio\obj\Debug\InterfasesRepositorio.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesRepositorio\obj\Debug\InterfasesRepositorio.pdb

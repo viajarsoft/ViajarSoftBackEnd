@@ -7,14 +7,3 @@ C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioPruebas\bin\Debug\Mo
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioPruebas\obj\Debug\RepositorioPruebas.csprojResolveAssemblyReference.cache
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioPruebas\obj\Debug\RepositorioPruebas.dll
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioPruebas\obj\Debug\RepositorioPruebas.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioPruebas\bin\Debug\RepositorioPruebas.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioPruebas\bin\Debug\RepositorioPruebas.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioPruebas\bin\Debug\GestorConfiguracion.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioPruebas\bin\Debug\InterfasesRepositorio.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioPruebas\bin\Debug\Modelo.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioPruebas\bin\Debug\GestorConfiguracion.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioPruebas\bin\Debug\InterfasesRepositorio.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioPruebas\bin\Debug\Modelo.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioPruebas\obj\Debug\RepositorioPruebas.csprojResolveAssemblyReference.cache
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioPruebas\obj\Debug\RepositorioPruebas.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioPruebas\obj\Debug\RepositorioPruebas.pdb

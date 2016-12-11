@@ -7,12 +7,3 @@ C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\bin\Debug
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\obj\Debug\RepositorioProduccion.csprojResolveAssemblyReference.cache
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\obj\Debug\RepositorioProduccion.dll
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\obj\Debug\RepositorioProduccion.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioProduccion\bin\Debug\RepositorioProduccion.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioProduccion\bin\Debug\RepositorioProduccion.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioProduccion\bin\Debug\InterfasesRepositorio.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioProduccion\bin\Debug\Modelo.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioProduccion\bin\Debug\InterfasesRepositorio.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioProduccion\bin\Debug\Modelo.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioProduccion\obj\Debug\RepositorioProduccion.csprojResolveAssemblyReference.cache
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioProduccion\obj\Debug\RepositorioProduccion.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\RepositorioProduccion\obj\Debug\RepositorioProduccion.pdb

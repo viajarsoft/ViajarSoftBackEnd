@@ -12,10 +12,3 @@ C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\InterfasesNegocio\bin\Debug\Mod
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\InterfasesNegocio\obj\Debug\InterfasesNegocio.csprojResolveAssemblyReference.cache
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\InterfasesNegocio\obj\Debug\InterfasesNegocio.dll
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\InterfasesNegocio\obj\Debug\InterfasesNegocio.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesNegocio\bin\Debug\InterfasesNegocio.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesNegocio\bin\Debug\InterfasesNegocio.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesNegocio\bin\Debug\Modelo.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesNegocio\bin\Debug\Modelo.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesNegocio\obj\Debug\InterfasesNegocio.csprojResolveAssemblyReference.cache
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesNegocio\obj\Debug\InterfasesNegocio.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\InterfasesNegocio\obj\Debug\InterfasesNegocio.pdb

@@ -10,9 +10,3 @@ C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\GestorConfiguracion\obj\Debug\G
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\GestorConfiguracion\obj\Debug\GestorConfiguracion.csproj.GenerateResource.Cache
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\GestorConfiguracion\obj\Debug\GestorConfiguracion.dll
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\GestorConfiguracion\obj\Debug\GestorConfiguracion.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\GestorConfiguracion\bin\Debug\GestorConfiguracion.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\GestorConfiguracion\bin\Debug\GestorConfiguracion.pdb
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\GestorConfiguracion\obj\Debug\GestorConfiguracion.AppSettings.resources
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\GestorConfiguracion\obj\Debug\GestorConfiguracion.csproj.GenerateResource.Cache
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\GestorConfiguracion\obj\Debug\GestorConfiguracion.dll
-D:\ViajarSoft.Transporte\ViajarSoft.Backend\GestorConfiguracion\obj\Debug\GestorConfiguracion.pdb
