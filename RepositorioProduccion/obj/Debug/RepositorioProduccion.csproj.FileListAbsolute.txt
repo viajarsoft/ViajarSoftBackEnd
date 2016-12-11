@@ -1,9 +1,0 @@
-C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\bin\Debug\RepositorioProduccion.dll
-C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\bin\Debug\RepositorioProduccion.pdb
-C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\bin\Debug\InterfasesRepositorio.dll
-C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\bin\Debug\Modelo.dll
-C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\bin\Debug\InterfasesRepositorio.pdb
-C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\bin\Debug\Modelo.pdb
-C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\obj\Debug\RepositorioProduccion.csprojResolveAssemblyReference.cache
-C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\obj\Debug\RepositorioProduccion.dll
-C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\RepositorioProduccion\obj\Debug\RepositorioProduccion.pdb
