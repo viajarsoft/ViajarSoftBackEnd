@@ -4,9 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Xml;
-using Modelo;
-using InterfasesNegocio;
-using GestorNegocio;
+using Modelo.Factura;
+
 
 namespace ViajarSoft.Controllers.Api.V2
 {

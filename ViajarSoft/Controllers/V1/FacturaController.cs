@@ -4,8 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Xml;
-using Modelo;
-using InterfasesNegocio;
+using Modelo.Seguridad;
+using Modelo.Factura;
+using Fachada;
+
 
 
 namespace ViajarSoft.Controllers.Api.V1
@@ -13,28 +15,28 @@ namespace ViajarSoft.Controllers.Api.V1
     public class FacturaController : ApiController
     {
 
-        private INegocioFacturas negocioFacturas;
+        //private IFa negocioFacturas;
 
-        public FacturaController()
-        {
+        //public FacturaController()
+        //{
 
-        }
+        //}
 
-        public FacturaController(INegocioFacturas negocioFacturas)
-        {
-            this.negocioFacturas= negocioFacturas;
-        }
+        //public FacturaController(IGestorFacturas negocioFacturas)
+        //{
+        //    this.negocioFacturas= negocioFacturas;
+        //}
 
-        [HttpGet]
-        public IEnumerable<Factura> All()
-        {
-            IEnumerable<string> headerValues;
-            this.Request.Headers.TryGetValues("token", out headerValues);
-            string[] credenciales = headerValues.FirstOrDefault().Split('|');
-            Credencial credencial = new Credencial(credenciales[0],credenciales[1]);
-            negocioFacturas.EstablecerCredenciales(credencial);
-            return negocioFacturas.ObtenerFacturas();
-        }
+        //[HttpGet]
+        //public IEnumerable<Factura> All()
+        //{
+        //    IEnumerable<string> headerValues;
+        //    this.Request.Headers.TryGetValues("token", out headerValues);
+        //    string[] credenciales = headerValues.FirstOrDefault().Split('|');
+        //    Credencial credencial = new Credencial(credenciales[0],credenciales[1]);
+        //    negocioFacturas.EstablecerCredenciales(credencial);
+        //    return negocioFacturas.ObtenerFacturas();
+        //}
 
    }
 }

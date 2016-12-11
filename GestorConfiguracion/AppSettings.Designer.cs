@@ -68,5 +68,14 @@ namespace GestorConfiguracion {
                 return ResourceManager.GetString("repositorio", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a tokenPruebas.
+        /// </summary>
+        internal static string tokenPruebas {
+            get {
+                return ResourceManager.GetString("tokenPruebas", resourceCulture);
+            }
+        }
     }
 }

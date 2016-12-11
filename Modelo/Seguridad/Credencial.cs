@@ -4,12 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelo
+namespace Modelo.Seguridad
 {
     public class Credencial
     {
         public string Usuario { get; set; }
         public string Contrasena { get; set; }
+
+        public Credencial(string usuario)
+        {
+            this.Usuario = usuario;
+        }
 
         public Credencial(string usuario, string contrasena)
         {

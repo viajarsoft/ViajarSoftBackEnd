@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Modelo;
+using Modelo.Factura;
 
 namespace InterfasesRepositorio
 {
-    public interface IGestorFactura
+    public interface IRepositorioFactura
     {
         List<Factura> ObtenerTodas(string usuario, string clave);
     }

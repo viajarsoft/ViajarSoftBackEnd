@@ -120,4 +120,7 @@
   <data name="repositorio" xml:space="preserve">
     <value>repositorio</value>
   </data>
+  <data name="tokenPruebas" xml:space="preserve">
+    <value>tokenPruebas</value>
+  </data>
 </root>

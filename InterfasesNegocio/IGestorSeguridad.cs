@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Modelo;
+using Modelo.Seguridad;
 
 namespace InterfasesNegocio
 {
-    public interface INegocioFacturas
+    public interface IGestorSeguridad
     {
-        List<Factura> ObtenerFacturas();
-
-        void EstablecerCredenciales(Credencial credencial);
+        RespuestaIngreso Ingresar(string usuario, string contrasena); 
     }
 }

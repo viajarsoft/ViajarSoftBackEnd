@@ -141,6 +141,7 @@
     <Compile Include="App_Start\DependencyResolver.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\V1\FacturaController.cs" />
+    <Compile Include="Controllers\V1\SeguridadController.cs" />
     <Compile Include="Controllers\V2\FacturaController.cs" />
     <Compile Include="Controllers\ControllerLocator.cs" />
     <Compile Include="Controllers\HeaderVersionControllerSelector.cs" />
@@ -167,17 +168,21 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\GestorNegocio\GestorNegocio.csproj">
-      <Project>{1664817c-b332-4f8c-83e9-88ba3a3c12f5}</Project>
-      <Name>GestorNegocio</Name>
+    <ProjectReference Include="..\Fachada\Fachada.csproj">
+      <Project>{6f1c23c5-a42f-45fc-ae52-4548edca8cfa}</Project>
+      <Name>Fachada</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InterfasesNegocio\InterfasesNegocio.csproj">
-      <Project>{b740eaf5-7137-4ce9-8539-9461ce559480}</Project>
-      <Name>InterfasesNegocio</Name>
+    <ProjectReference Include="..\InterfasesFachada\InterfasesFachada.csproj">
+      <Project>{418cc6fc-a68d-42ee-b280-b8a741ce49f8}</Project>
+      <Name>InterfasesFachada</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modelo\Modelo.csproj">
       <Project>{31e9af31-c54c-427b-8f9f-48496b5eac83}</Project>
       <Name>Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilidades\Utilidades.csproj">
+      <Project>{fbb213dd-32d8-4cea-9a7d-77bbed84a5db}</Project>
+      <Name>Utilidades</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

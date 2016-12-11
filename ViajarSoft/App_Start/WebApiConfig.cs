@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using Microsoft.Practices.Unity;
-using InterfasesNegocio;
-using GestorNegocio;
 using System.Web.Mvc;
 using ViajarSoft;
+using InterfasesFachada;
+using Fachada;
 
 namespace ViajarSoft
 {
@@ -16,8 +16,8 @@ namespace ViajarSoft
         {
             UnityContainer contenedorDependencias = new UnityContainer();
 
-            contenedorDependencias.RegisterType<INegocioFacturas, GestorNegocio.Facturas>(new ContainerControlledLifetimeManager());
-            contenedorDependencias.RegisterInstance(new GestorNegocio.Facturas(), new ContainerControlledLifetimeManager());
+            contenedorDependencias.RegisterType<IFachadaSeguridad, FachadaSeguridad>(new ContainerControlledLifetimeManager());
+            contenedorDependencias.RegisterInstance(typeof(FachadaSeguridad), new FachadaSeguridad(), new ContainerControlledLifetimeManager());
             config.DependencyResolver = new DependencyResolver(contenedorDependencias);
             // Web API routes
             config.MapHttpAttributeRoutes();

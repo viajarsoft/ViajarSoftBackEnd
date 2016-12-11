@@ -7,3 +7,8 @@ C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\Modelo\bin\Debug\Modelo.dll
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\Modelo\bin\Debug\Modelo.pdb
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\Modelo\obj\Debug\Modelo.dll
 C:\Users\Dieber\Desktop\CSharp\Viajasoft.Backend\Modelo\obj\Debug\Modelo.pdb
+D:\ViajarSoft.Transporte\ViajarSoft.Backend\Modelo\bin\Debug\Modelo.dll
+D:\ViajarSoft.Transporte\ViajarSoft.Backend\Modelo\bin\Debug\Modelo.pdb
+D:\ViajarSoft.Transporte\ViajarSoft.Backend\Modelo\obj\Debug\Modelo.dll
+D:\ViajarSoft.Transporte\ViajarSoft.Backend\Modelo\obj\Debug\Modelo.pdb
+D:\ViajarSoft.Transporte\ViajarSoft.Backend\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache

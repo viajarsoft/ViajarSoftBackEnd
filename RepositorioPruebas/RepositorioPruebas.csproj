@@ -40,10 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestorSeguridad.cs" />
     <Compile Include="GestorFactura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GestorConfiguracion\GestorConfiguracion.csproj">
+      <Project>{076791f4-61e5-40a8-83c3-80a628450427}</Project>
+      <Name>GestorConfiguracion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InterfasesRepositorio\InterfasesRepositorio.csproj">
       <Project>{3823f788-1f02-47a1-8105-299b34f82f99}</Project>
       <Name>InterfasesRepositorio</Name>

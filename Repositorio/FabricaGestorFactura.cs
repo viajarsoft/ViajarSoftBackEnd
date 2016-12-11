@@ -10,7 +10,7 @@ namespace Repositorio
     public static class FabricaGestorFactura 
     {
 
-        public static IGestorFactura Crear(string ambiente)
+        public static IRepositorioFactura Crear(string ambiente)
         {
             switch (ambiente.ToLower())
             {

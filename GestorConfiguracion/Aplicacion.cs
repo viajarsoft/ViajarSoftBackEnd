@@ -13,5 +13,10 @@ namespace GestorConfiguracion
         {
             return ConfigurationManager.AppSettings[AppSettings.repositorio];
         }
+
+        public static string ObtenerTokenPruebas()
+        {
+            return ConfigurationManager.AppSettings[AppSettings.tokenPruebas];
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 
-namespace Modelo
+namespace Modelo.Factura
 {
     public class Factura
     {

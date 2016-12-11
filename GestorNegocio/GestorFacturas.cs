@@ -7,15 +7,16 @@ using InterfasesRepositorio;
 using Repositorio;
 using GestorConfiguracion;
 using InterfasesNegocio;
-using Modelo;
+using Modelo.Seguridad;
+using Modelo.Factura;
 
 namespace GestorNegocio
 {
-    public class Facturas : NegocioGeneral, INegocioFacturas
+    public class GestorFacturas : NegocioGeneral, IGestorFacturas
     {
-        private IGestorFactura repositorioNoticia;
+        private IRepositorioFactura repositorioNoticia;
 
-        public Facturas()
+        public GestorFacturas()
         {
             repositorioNoticia = FabricaGestorFactura.Crear(Aplicacion.ObtenerAmbiente());
         }
@@ -25,7 +26,7 @@ namespace GestorNegocio
             this.credencial = credencial;
         }
 
-        public Facturas(IGestorFactura repositorioNoticia)
+        public GestorFacturas(IRepositorioFactura repositorioNoticia)
         {
             this.repositorioNoticia = repositorioNoticia;
         }
