@@ -13,7 +13,7 @@ namespace RepositorioPruebas
     public class GestorSeguridad : IRepositorioSeguridad
     {
 
-        public RespuestaIngreso Ingresar(string usuario, string contrasena)
+        public RespuestaIngreso Ingresar(string usuario, string contrasena, string token, DateTime fechaVencimiento)
         {
             return new RespuestaIngreso() { Credencial = new Credencial(usuario), Token = Aplicacion.ObtenerTokenPruebas() };     
         }

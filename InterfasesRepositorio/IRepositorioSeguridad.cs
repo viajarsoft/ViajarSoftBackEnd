@@ -9,6 +9,6 @@ namespace InterfasesRepositorio
 {
     public interface IRepositorioSeguridad
     {
-        RespuestaIngreso Ingresar(string usuario,string contrasena);
+        RespuestaIngreso Ingresar(string usuario, string contrasena, string token, DateTime fechaVencimiento);
     }
 }

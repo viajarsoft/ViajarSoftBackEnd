@@ -23,5 +23,10 @@ namespace GestorConfiguracion
         {
             return ConfigurationManager.ConnectionStrings[AppSettings.conexion].ConnectionString;
         }
+
+        public static string ObtenerDiasVencimiento()
+        {
+            return ConfigurationManager.AppSettings[AppSettings.diasVencimiento];
+        }
     }
 }

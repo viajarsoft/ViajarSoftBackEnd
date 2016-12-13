@@ -120,6 +120,9 @@
   <data name="conexion" xml:space="preserve">
     <value>conexion</value>
   </data>
+  <data name="diasVencimiento" xml:space="preserve">
+    <value>diasVencimiento</value>
+  </data>
   <data name="repositorio" xml:space="preserve">
     <value>repositorio</value>
   </data>

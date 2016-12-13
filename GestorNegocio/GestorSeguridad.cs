@@ -27,7 +27,9 @@ namespace GestorNegocio
 
         public RespuestaIngreso Ingresar(string usuario, string contrasena)
         {
-            RespuestaIngreso salida = repositorioSeguridad.Ingresar(usuario, contrasena);
+            string token = new Guid().ToString();
+            DateTime  fechaVencimiento = DateTime.Now.AddDays(int.Parse(Aplicacion.ObtenerDiasVencimiento())); 
+            RespuestaIngreso salida = repositorioSeguridad.Ingresar(usuario, contrasena,token,fechaVencimiento);
             if (string.IsNullOrEmpty(salida.Token))
             {
                 throw new Exception("Usuario no válido");
