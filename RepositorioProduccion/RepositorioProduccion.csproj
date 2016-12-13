@@ -51,6 +51,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GestorConfiguracion\GestorConfiguracion.csproj">
+      <Project>{076791f4-61e5-40a8-83c3-80a628450427}</Project>
+      <Name>GestorConfiguracion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GestorDB\GestorDB.csproj">
       <Project>{258d4f3c-703e-421d-aac5-51c1e6184750}</Project>
       <Name>GestorDB</Name>

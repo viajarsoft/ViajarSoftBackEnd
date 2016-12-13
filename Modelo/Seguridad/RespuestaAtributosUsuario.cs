@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Modelo.Seguridad
 {
-    public class RespuestaIngreso : Respuesta
+    public class RespuestaAtributosUsuario
     {
-        public Credencial Credencial { get; set; }
-        public string Token;
         // CODOFICINA
         public string CodigoOficina { get; set; }
         // CODTAQUI

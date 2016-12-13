@@ -28,5 +28,31 @@ namespace GestorConfiguracion
         {
             return ConfigurationManager.AppSettings[AppSettings.diasVencimiento];
         }
+
+        public static string ObtenerConexion(string sistema)
+        {
+            return ConfigurationManager.ConnectionStrings[sistema].ConnectionString;
+        }
+
+        public static string ObtenerSistemaFactura()
+        {
+            return AppSettings.sistemaFactura;
+        }
+
+        public static string ObtenerSistemaSeguridad()
+        {
+            return AppSettings.sistemaSeguridad;
+        }
+
+        public static string ObtenerComentarioAplicacion()
+        {
+            return ConfigurationManager.AppSettings[AppSettings.comentarioAplicacion];
+        }
+
+        public static string ObtenerCodigoAplicacion()
+        {
+            return ConfigurationManager.AppSettings[AppSettings.codigoAplicacion];
+        }
+
     }
 }

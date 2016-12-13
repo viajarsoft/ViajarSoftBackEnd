@@ -9,12 +9,13 @@ using GestorConfiguracion;
 
 namespace GestorDB
 {
-    public class Operacion : IDisposable
+    public class Operacion : IDisposable, GestorDB.IOperacion
     {
         private SqlConnection conexion;
-        public Operacion()
+
+        public Operacion(string nombreConexion)
         {
-            conexion = new SqlConnection(Aplicacion.ObtenerConexion());
+            conexion = new SqlConnection();
         }
 
         public DataTable EjecutarConDatosEnTabla(string procedimientoAlmacenado,List<SqlParameter> parametros)

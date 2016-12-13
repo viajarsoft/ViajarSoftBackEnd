@@ -24,9 +24,9 @@ namespace Fachada
             this.gestorSeguridad = gestorSeguridad;
         }
 
-        public RespuestaIngreso Ingresar(string usuario,string clave)
+        public RespuestaIngreso Ingresar(string usuario,string clave,string ipUsuario)
         {
-            return gestorSeguridad.Ingresar(usuario, clave);
+            return gestorSeguridad.Ingresar(usuario, clave, ipUsuario);
         }
     }
 }

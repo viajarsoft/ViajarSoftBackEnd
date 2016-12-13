@@ -9,6 +9,6 @@ namespace InterfasesNegocio
 {
     public interface IGestorSeguridad
     {
-        RespuestaIngreso Ingresar(string usuario, string contrasena); 
+        RespuestaIngreso Ingresar(string usuario, string contrasena,string ipUsuario); 
     }
 }

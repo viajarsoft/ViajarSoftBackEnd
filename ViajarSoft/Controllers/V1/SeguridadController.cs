@@ -25,7 +25,7 @@ namespace ViajarSoft.Controllers.Api.V1
         {
             this.fachadaSeguridad = fachadaSeguridad;
         }
-        
+
         [HttpPost]
         public HttpResponseMessage Ingresar(SolicitudIngreso parametrosIngreso)
         {
@@ -33,9 +33,10 @@ namespace ViajarSoft.Controllers.Api.V1
             RespuestaIngreso respuestaIngreso = new RespuestaIngreso();
             try
             {
-                respuestaIngreso = fachadaSeguridad.Ingresar(parametrosIngreso.Usuario, parametrosIngreso.Clave);
+                respuestaIngreso = fachadaSeguridad.Ingresar(parametrosIngreso.Usuario, parametrosIngreso.Clave, parametrosIngreso.IpUsuario);
                 respuesta.StatusCode = HttpStatusCode.OK;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 respuesta.StatusCode = HttpStatusCode.Unauthorized;
                 respuestaIngreso.Mensaje = ex.Message;

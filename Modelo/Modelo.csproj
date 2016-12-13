@@ -44,7 +44,9 @@
     <Compile Include="Seguridad\Credencial.cs" />
     <Compile Include="Factura\Factura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\RespuestaAtributosUsuario.cs" />
     <Compile Include="Seguridad\RespuestaIngreso.cs" />
+    <Compile Include="Seguridad\RespuestaLogin.cs" />
     <Compile Include="Seguridad\SolicitudIngreso.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

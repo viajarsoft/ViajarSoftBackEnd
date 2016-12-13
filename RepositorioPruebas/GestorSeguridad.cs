@@ -17,5 +17,17 @@ namespace RepositorioPruebas
         {
             return new RespuestaIngreso() { Credencial = new Credencial(usuario), Token = Aplicacion.ObtenerTokenPruebas() };     
         }
+
+
+        public RespuestaLogin Login(string usuario, string contrasena, string nombreEstacion, string comentarioAplicacion, string codigoAplicacion)
+        {
+            return new RespuestaLogin(usuario, usuario) { Contrasena = contrasena };
+        }
+
+
+        public RespuestaAtributosUsuario LeerAtributosUsuario(string usuario)
+        {
+            return new RespuestaAtributosUsuario() { CodigoOficina = "001OFI", CodigoTaquilla = "TAQU001", IdentificadorEmpresa = "TRANS" };
+        }
     }
 }

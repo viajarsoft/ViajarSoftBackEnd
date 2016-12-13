@@ -4,6 +4,6 @@ namespace InterfasesFachada
 {
     public interface IFachadaSeguridad
     {
-        RespuestaIngreso Ingresar(string usuario, string clave);
+        RespuestaIngreso Ingresar(string usuario, string clave,string ipUsuario);
     }
 }

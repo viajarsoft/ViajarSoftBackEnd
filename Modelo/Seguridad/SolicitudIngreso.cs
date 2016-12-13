@@ -10,5 +10,6 @@ namespace Modelo.Seguridad
     {
         public string Usuario { get; set; }
         public string Clave { get; set; }
+        public string IpUsuario { get; set; }
     }
 }

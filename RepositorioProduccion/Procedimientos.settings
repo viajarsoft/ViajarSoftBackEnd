@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RepositorioProduccion" GeneratedClassName="Procedimientos">
   <Profiles />
   <Settings>
-    <Setting Name="sp_CrearToken" Type="System.String" Scope="Application">
+    <Setting Name="sp_CrearToken" Type="System.String" Scope="User">
       <Value Profile="(Default)">sp_CrearToken</Value>
     </Setting>
     <Setting Name="sp_ObtenerTokenPorUsuario" Type="System.String" Scope="User">
@@ -10,6 +10,12 @@
     </Setting>
     <Setting Name="sp_ObtenerTokenPorToken" Type="System.String" Scope="User">
       <Value Profile="(Default)">sp_ObtenerTokenPorToken</Value>
+    </Setting>
+    <Setting Name="SP_LOGIN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SP_LOGIN</Value>
+    </Setting>
+    <Setting Name="SP_T013LEEATRIBUTOSUSUARIO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SP_T013LEEATRIBUTOSUSUARIO</Value>
     </Setting>
   </Settings>
 </SettingsFile>

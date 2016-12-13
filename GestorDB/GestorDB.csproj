@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FabricaConexionDB.cs" />
+    <Compile Include="IOperacion.cs" />
     <Compile Include="Operacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

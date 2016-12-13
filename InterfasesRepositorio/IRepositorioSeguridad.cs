@@ -10,5 +10,7 @@ namespace InterfasesRepositorio
     public interface IRepositorioSeguridad
     {
         RespuestaIngreso Ingresar(string usuario, string contrasena, string token, DateTime fechaVencimiento);
+        RespuestaLogin Login(string usuario, string contrasena, string nombreEstacion, string comentarioAplicacion, string codigoAplicacion);
+        RespuestaAtributosUsuario LeerAtributosUsuario(string usuario);
     }
 }
