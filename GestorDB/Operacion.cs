@@ -37,6 +37,22 @@ namespace GestorDB
             return salida;
         }
 
+
+        public DataTable EjecutarConDatosEnTablaSinParametros(string procedimientoAlmacenado)
+        {
+            DataTable salida = null;
+            using (SqlDataAdapter adaptador = new SqlDataAdapter())
+            {
+                using (SqlCommand comando = new SqlCommand(procedimientoAlmacenado, conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    adaptador.SelectCommand = comando;
+                    adaptador.Fill(salida);
+                }
+            }
+            return salida;
+        }
+
         public Object EjecutarConValor(string procedimientoAlmacenado, List<SqlParameter> parametros)
         {
             Object salida = null;

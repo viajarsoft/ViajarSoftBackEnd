@@ -54,5 +54,10 @@ namespace GestorConfiguracion
             return ConfigurationManager.AppSettings[AppSettings.codigoAplicacion];
         }
 
+        public static string ObtenerNombreValorToken()
+        {
+            return ConfigurationManager.AppSettings[AppSettings.valorToken];
+        }
+
     }
 }

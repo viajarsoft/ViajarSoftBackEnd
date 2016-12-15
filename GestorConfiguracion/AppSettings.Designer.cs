@@ -131,5 +131,14 @@ namespace GestorConfiguracion {
                 return ResourceManager.GetString("tokenPruebas", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a valorToken.
+        /// </summary>
+        internal static string valorToken {
+            get {
+                return ResourceManager.GetString("valorToken", resourceCulture);
+            }
+        }
     }
 }

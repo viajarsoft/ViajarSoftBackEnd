@@ -9,7 +9,9 @@ namespace InterfasesRepositorio
 {
     public interface IRepositorioSeguridad
     {
-        RespuestaIngreso Ingresar(string usuario, string contrasena, string token, DateTime fechaVencimiento);
+        void CrearToken(string usuario, string token, DateTime fechaVencimiento);
+        RespuestaIngreso ConsultarToken(string token);
+        void EliminarToken(string token);
         RespuestaLogin Login(string usuario, string contrasena, string nombreEstacion, string comentarioAplicacion, string codigoAplicacion);
         RespuestaAtributosUsuario LeerAtributosUsuario(string usuario);
     }

@@ -14,11 +14,11 @@ namespace GestorNegocio
 {
     public class GestorFacturas : NegocioGeneral, IGestorFacturas
     {
-        private IRepositorioFactura repositorioNoticia;
+        private IRepositorioFactura repositorioFactura;
 
         public GestorFacturas()
         {
-            repositorioNoticia = FabricaGestorFactura.Crear(Aplicacion.ObtenerAmbiente());
+            repositorioFactura = FabricaGestorFactura.Crear(Aplicacion.ObtenerAmbiente());
         }
 
         public void EstablecerCredenciales(Credencial credencial)
@@ -26,15 +26,30 @@ namespace GestorNegocio
             this.credencial = credencial;
         }
 
-        public GestorFacturas(IRepositorioFactura repositorioNoticia)
+        public GestorFacturas(IRepositorioFactura repositorioFactura)
         {
-            this.repositorioNoticia = repositorioNoticia;
+            this.repositorioFactura = repositorioFactura;
         }
 
-        public List<Factura> ObtenerFacturas()
+
+        public List<TipoBus> ObtenerTiposDeAutoActivos()
         {
-            return repositorioNoticia.ObtenerTodas(credencial.Usuario, credencial.Contrasena);
+            return repositorioFactura.ObtenerTiposDeAutoActivos();
         }
 
+        public OficinaVenta ObtenerOficinaVendedor(string codigoOficina)
+        {
+            return repositorioFactura.ObtenerOficinaVendedor(codigoOficina);
+        }
+
+        public List<Ruta> ObtenerRutas(string codigoOficinaOrigen)
+        {
+            return repositorioFactura.ObtenerRutas(codigoOficinaOrigen);
+        }
+
+        public List<PrecioDestino> ObtenerPreciosDestino(string codigoTipoBus, string codigoRuta, string codigoTipoPasaje)
+        {
+            return repositorioFactura.ObtenerPreciosDestino(codigoTipoBus,codigoRuta,codigoTipoPasaje);
+        }
     }
 }

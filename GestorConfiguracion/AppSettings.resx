@@ -141,4 +141,7 @@
   <data name="tokenPruebas" xml:space="preserve">
     <value>tokenPruebas</value>
   </data>
+  <data name="valorToken" xml:space="preserve">
+    <value>valorToken</value>
+  </data>
 </root>

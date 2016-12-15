@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factura\OficinaVenta.cs" />
+    <Compile Include="Factura\PrecioDestino.cs" />
+    <Compile Include="Factura\Ruta.cs" />
+    <Compile Include="Factura\TipoBus.cs" />
     <Compile Include="Respuesta.cs" />
     <Compile Include="Seguridad\Credencial.cs" />
     <Compile Include="Factura\Factura.cs" />

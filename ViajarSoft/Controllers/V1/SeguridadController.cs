@@ -9,6 +9,7 @@ using InterfasesFachada;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Modelo.Seguridad;
+using GestorConfiguracion;
 
 namespace ViajarSoft.Controllers.Api.V1
 {
@@ -26,14 +27,69 @@ namespace ViajarSoft.Controllers.Api.V1
             this.fachadaSeguridad = fachadaSeguridad;
         }
 
-        [HttpPost]
-        public HttpResponseMessage Ingresar(SolicitudIngreso parametrosIngreso)
+        [HttpGet]
+        public HttpResponseMessage CrearToken(SolicitudIngreso parametrosIngreso)
         {
             HttpResponseMessage respuesta = new HttpResponseMessage();
             RespuestaIngreso respuestaIngreso = new RespuestaIngreso();
             try
             {
-                respuestaIngreso = fachadaSeguridad.Ingresar(parametrosIngreso.Usuario, parametrosIngreso.Clave, parametrosIngreso.IpUsuario);
+                respuestaIngreso = fachadaSeguridad.CrearToken(parametrosIngreso.Usuario, parametrosIngreso.Clave, parametrosIngreso.IpUsuario);
+                respuesta.StatusCode = HttpStatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                respuestaIngreso.Mensaje = ex.Message;
+            }
+            finally
+            {
+                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaIngreso));
+            }
+            return respuesta;
+        }
+
+        [HttpGet]
+        public HttpResponseMessage ActualizarToken(SolicitudIngreso parametrosIngreso)
+        {
+            HttpResponseMessage respuesta = new HttpResponseMessage();
+            RespuestaIngreso respuestaIngreso = new RespuestaIngreso();
+            try
+            {
+                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
+                if (headerValues == null)
+                {
+                    respuestaIngreso = new RespuestaIngreso();
+                    respuesta.StatusCode = HttpStatusCode.BadRequest;
+                    respuestaIngreso.Mensaje = "Sin token";
+                }
+                else
+                {
+                    string token = headerValues.FirstOrDefault();
+                    respuestaIngreso = fachadaSeguridad.ActualizarToken(parametrosIngreso.Usuario, parametrosIngreso.Clave, parametrosIngreso.IpUsuario, token);
+                    respuesta.StatusCode = HttpStatusCode.OK;
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                respuestaIngreso.Mensaje = ex.Message;
+            }
+            finally
+            {
+                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaIngreso));
+            }
+            return respuesta;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage Login(string token)
+        {
+            HttpResponseMessage respuesta = new HttpResponseMessage();
+            RespuestaIngreso respuestaIngreso = new RespuestaIngreso();
+            try
+            {
+                respuestaIngreso = fachadaSeguridad.Login(token);
                 respuesta.StatusCode = HttpStatusCode.OK;
             }
             catch (Exception ex)

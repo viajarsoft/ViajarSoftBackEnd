@@ -10,5 +10,6 @@ namespace GestorNegocio
     public abstract class NegocioGeneral
     {
         protected Credencial credencial;
+        protected string token;
     }
 }

@@ -10,7 +10,26 @@ namespace RepositorioPruebas
 {
     public class GestorFactura : IRepositorioFactura
     {
-        public List<Factura> ObtenerTodas(string usuario, string clave)
+
+        public List<TipoBus> ObtenerTiposDeAutoActivos()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public OficinaVenta ObtenerOficinaVendedor(string codigoOficina)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public List<Ruta> ObtenerRutas(string codigoOficinaOrigen)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public List<PrecioDestino> ObtenerPreciosDestino(string codigoTipoBus, string codigoRuta, string codigoTipoPasaje)
         {
             throw new NotImplementedException();
         }

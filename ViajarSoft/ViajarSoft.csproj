@@ -172,6 +172,10 @@
       <Project>{6f1c23c5-a42f-45fc-ae52-4548edca8cfa}</Project>
       <Name>Fachada</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GestorConfiguracion\GestorConfiguracion.csproj">
+      <Project>{076791f4-61e5-40a8-83c3-80a628450427}</Project>
+      <Name>GestorConfiguracion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InterfasesFachada\InterfasesFachada.csproj">
       <Project>{418cc6fc-a68d-42ee-b280-b8a741ce49f8}</Project>
       <Name>InterfasesFachada</Name>

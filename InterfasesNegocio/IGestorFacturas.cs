@@ -10,8 +10,10 @@ namespace InterfasesNegocio
 {
     public interface IGestorFacturas
     {
-        List<Factura> ObtenerFacturas();
-
         void EstablecerCredenciales(Credencial credencial);
+        List<TipoBus> ObtenerTiposDeAutoActivos();
+        OficinaVenta ObtenerOficinaVendedor(string codigoOficina);
+        List<Ruta> ObtenerRutas(string codigoOficinaOrigen);
+        List<PrecioDestino> ObtenerPreciosDestino(string codigoTipoBus, string codigoRuta, string codigoTipoPasaje);
     }
 }

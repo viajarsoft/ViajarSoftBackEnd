@@ -16,5 +16,6 @@ namespace Modelo.Seguridad
         public string CodigoTaquilla { get; set; }
         // TENANT
         public string IdentificadorEmpresa { get; set; }
+        public DateTime FechaVencimiento { get; set; }
     }
 }

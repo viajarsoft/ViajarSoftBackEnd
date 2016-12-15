@@ -23,63 +23,84 @@ namespace RepositorioProduccion {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sp_CrearToken")]
-        public string sp_CrearToken {
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T250CREARTOKEN")]
+        public string SP_T250CREARTOKEN {
             get {
-                return ((string)(this["sp_CrearToken"]));
-            }
-            set {
-                this["sp_CrearToken"] = value;
+                return ((string)(this["SP_T250CREARTOKEN"]));
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sp_ObtenerTokenPorUsuario")]
-        public string sp_ObtenerTokenPorUsuario {
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T250CONSULTARTOKEN")]
+        public string SP_T250CONSULTARTOKEN {
             get {
-                return ((string)(this["sp_ObtenerTokenPorUsuario"]));
-            }
-            set {
-                this["sp_ObtenerTokenPorUsuario"] = value;
+                return ((string)(this["SP_T250CONSULTARTOKEN"]));
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sp_ObtenerTokenPorToken")]
-        public string sp_ObtenerTokenPorToken {
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T250ELIMINARTOKEN")]
+        public string SP_T250ELIMINARTOKEN {
             get {
-                return ((string)(this["sp_ObtenerTokenPorToken"]));
-            }
-            set {
-                this["sp_ObtenerTokenPorToken"] = value;
+                return ((string)(this["SP_T250ELIMINARTOKEN"]));
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("SP_LOGIN")]
         public string SP_LOGIN {
             get {
                 return ((string)(this["SP_LOGIN"]));
             }
-            set {
-                this["SP_LOGIN"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("SP_T013LEEATRIBUTOSUSUARIO")]
         public string SP_T013LEEATRIBUTOSUSUARIO {
             get {
                 return ((string)(this["SP_T013LEEATRIBUTOSUSUARIO"]));
             }
-            set {
-                this["SP_T013LEEATRIBUTOSUSUARIO"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T008TIPOBUS")]
+        public string SP_T008TIPOBUS {
+            get {
+                return ((string)(this["SP_T008TIPOBUS"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T005OFICINAS_VENTAS")]
+        public string SP_T005OFICINAS_VENTAS {
+            get {
+                return ((string)(this["SP_T005OFICINAS_VENTAS"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T026VALORRUTATIPOBUSRUTA_Venta")]
+        public string SP_T026VALORRUTATIPOBUSRUTA_Venta {
+            get {
+                return ((string)(this["SP_T026VALORRUTATIPOBUSRUTA_Venta"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T011RUTASPPAL_NOMBRE_ORI")]
+        public string SP_T011RUTASPPAL_NOMBRE_ORI {
+            get {
+                return ((string)(this["SP_T011RUTASPPAL_NOMBRE_ORI"]));
             }
         }
     }

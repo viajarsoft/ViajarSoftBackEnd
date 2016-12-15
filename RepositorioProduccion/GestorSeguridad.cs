@@ -14,33 +14,50 @@ namespace RepositorioProduccion
 
         private string sistema = Aplicacion.ObtenerSistemaSeguridad();
 
-        
+        public void CrearToken(string usuario, string token, DateTime fechaVencimiento)
+        {
+            using (Operacion operacion = new Operacion(sistema))
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@NOMBREUSUARIO", Value = usuario });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@TOKEN", Value = token });
+                parametros.Add(new SqlParameter() { DbType = DbType.DateTime, ParameterName = "@FECHAVENCIMIENTO", Value = fechaVencimiento});
+                operacion.Ejecutar(Procedimientos.Default.SP_T250CREARTOKEN, parametros);
+            }
+        }
 
-        public RespuestaIngreso Ingresar(string usuario, string contrasena, string token, DateTime fechaVencimiento)
+        public RespuestaIngreso ConsultarToken(string token)
         {
             RespuestaIngreso salida = null;
             using (Operacion operacion = new Operacion(sistema))
             {
                 List<SqlParameter> parametros = new List<SqlParameter>();
-                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@usuario", Value = usuario });
-                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@contrasena", Value = contrasena });
-                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@token", Value = token });
-                parametros.Add(new SqlParameter() { DbType = DbType.DateTime, ParameterName = "@fechaVencimiento", Value = fechaVencimiento});
-                DataTable salidaOperacion = operacion.EjecutarConDatosEnTabla(Procedimientos.Default.sp_CrearToken, parametros);
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@TOKEN", Value = token });
+                DataTable salidaOperacion = operacion.EjecutarConDatosEnTabla(Procedimientos.Default.SP_T250CONSULTARTOKEN, parametros);
                 if (salidaOperacion != null)
                 {
                     if (salidaOperacion.Rows.Count > 0)
                     {
-                        salida = new RespuestaIngreso();
                         DataRow datos = salidaOperacion.Rows[0];
-                        salida.Credencial = new Credencial(datos["Usuario"].ToString());
-                        salida.Token = datos["Token"].ToString();
+                        salida = new RespuestaIngreso();
+                        salida.Credencial = new Credencial(datos["A250_NOMBREUSUARIO"].ToString());
+                        salida.Token = datos["A250_TOKEN"].ToString();
+                        salida.FechaVencimiento = DateTime.Parse(datos["A250_FECHAVENCIMIENTO"].ToString()); 
                     }
                 }
             }
             return salida;
         }
 
+        public void EliminarToken(string token)
+        {
+            using (Operacion operacion = new Operacion(sistema))
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@TOKEN", Value = token });
+                operacion.Ejecutar(Procedimientos.Default.SP_T250ELIMINARTOKEN, parametros);
+            }
+        }
 
         public RespuestaLogin Login(string usuario, string contrasena, string nombreEstacion, string comentarioAplicacion, string codigoAplicacion)
         {
