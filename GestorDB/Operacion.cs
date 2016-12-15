@@ -15,12 +15,16 @@ namespace GestorDB
 
         public Operacion(string nombreConexion)
         {
-            conexion = new SqlConnection();
+            conexion = new SqlConnection(Aplicacion.ObtenerConexion(nombreConexion));
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
         }
 
         public DataTable EjecutarConDatosEnTabla(string procedimientoAlmacenado,List<SqlParameter> parametros)
         {
-            DataTable salida = null;
+            DataTable salida = new DataTable();
             using (SqlDataAdapter adaptador = new SqlDataAdapter())
             {
                 using (SqlCommand comando = new SqlCommand(procedimientoAlmacenado, conexion))
@@ -40,7 +44,7 @@ namespace GestorDB
 
         public DataTable EjecutarConDatosEnTablaSinParametros(string procedimientoAlmacenado)
         {
-            DataTable salida = null;
+            DataTable salida = new DataTable();
             using (SqlDataAdapter adaptador = new SqlDataAdapter())
             {
                 using (SqlCommand comando = new SqlCommand(procedimientoAlmacenado, conexion))

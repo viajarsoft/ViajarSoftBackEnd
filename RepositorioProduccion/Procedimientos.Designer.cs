@@ -52,10 +52,10 @@ namespace RepositorioProduccion {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SP_LOGIN")]
-        public string SP_LOGIN {
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T004LOGIN")]
+        public string SP_T004LOGIN {
             get {
-                return ((string)(this["SP_LOGIN"]));
+                return ((string)(this["SP_T004LOGIN"]));
             }
         }
         

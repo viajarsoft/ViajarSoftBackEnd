@@ -42,7 +42,12 @@
   <ItemGroup>
     <Compile Include="Factura\OficinaVenta.cs" />
     <Compile Include="Factura\PrecioDestino.cs" />
+    <Compile Include="Factura\RespuestaOficinaVenta.cs" />
+    <Compile Include="Factura\RespuestaPrecioDestino.cs" />
+    <Compile Include="Factura\RespuestaRuta.cs" />
+    <Compile Include="Factura\RespuestaTiposBus.cs" />
     <Compile Include="Factura\Ruta.cs" />
+    <Compile Include="Factura\SolicitudPrecioDestino.cs" />
     <Compile Include="Factura\TipoBus.cs" />
     <Compile Include="Respuesta.cs" />
     <Compile Include="Seguridad\Credencial.cs" />
@@ -52,6 +57,7 @@
     <Compile Include="Seguridad\RespuestaIngreso.cs" />
     <Compile Include="Seguridad\RespuestaLogin.cs" />
     <Compile Include="Seguridad\SolicitudIngreso.cs" />
+    <Compile Include="Seguridad\SolicitudLoginToken.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

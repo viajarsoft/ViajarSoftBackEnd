@@ -31,7 +31,7 @@ namespace RepositorioProduccion
                         salida = new List<TipoBus>();
                         foreach (DataRow itemOperacion in salidaOperacion.Select("A008_Estado = 'A'"))
                         {
-                            salida.Add(new TipoBus() { Tipo = itemOperacion["A008_TIPOBUS"].ToString(), Descripcion = itemOperacion["A008_DESCRI"].ToString() });
+                            salida.Add(new TipoBus() { Tipo = itemOperacion["A008_TIPOBUS"].ToString().Trim(), Descripcion = itemOperacion["A008_DESCRI"].ToString().Trim() });
                         }
                     }
                 }
@@ -52,7 +52,7 @@ namespace RepositorioProduccion
                         salida = new OficinaVenta();
                         foreach (DataRow itemOperacion in salidaOperacion.Select(string.Format("A005_CODOFICINA = '{0}'", codigoOficina)))
                         {
-                            salida = new OficinaVenta() { Codigo = itemOperacion["A005_CODOFICINA"].ToString(), Descripcion = itemOperacion["A005_DESCRI"].ToString() };
+                            salida = new OficinaVenta() { Codigo = itemOperacion["A005_CODOFICINA"].ToString().Trim(), Descripcion = itemOperacion["A005_DESCRI"].ToString().Trim() };
                         }
                     }
                 }
@@ -77,7 +77,7 @@ namespace RepositorioProduccion
                         salida = new List<Ruta>();
                         foreach (DataRow itemOperacion in salidaOperacion.Rows)
                         {
-                            salida.Add(new Ruta() { Codigo = itemOperacion["a011_codrutap"].ToString(), Descripcion = itemOperacion["nombre"].ToString() });
+                            salida.Add(new Ruta() { Codigo = itemOperacion["a011_codrutap"].ToString().Trim(), Descripcion = itemOperacion["nombre"].ToString().Trim() });
                         }
                     }
                 }

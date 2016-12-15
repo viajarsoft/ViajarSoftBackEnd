@@ -31,7 +31,6 @@ namespace GestorNegocio
             this.repositorioFactura = repositorioFactura;
         }
 
-
         public List<TipoBus> ObtenerTiposDeAutoActivos()
         {
             return repositorioFactura.ObtenerTiposDeAutoActivos();

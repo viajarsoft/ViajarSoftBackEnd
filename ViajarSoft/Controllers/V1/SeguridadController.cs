@@ -27,7 +27,7 @@ namespace ViajarSoft.Controllers.Api.V1
             this.fachadaSeguridad = fachadaSeguridad;
         }
 
-        [HttpGet]
+        [HttpPost]
         public HttpResponseMessage CrearToken(SolicitudIngreso parametrosIngreso)
         {
             HttpResponseMessage respuesta = new HttpResponseMessage();
@@ -49,7 +49,7 @@ namespace ViajarSoft.Controllers.Api.V1
             return respuesta;
         }
 
-        [HttpGet]
+        [HttpPost]
         public HttpResponseMessage ActualizarToken(SolicitudIngreso parametrosIngreso)
         {
             HttpResponseMessage respuesta = new HttpResponseMessage();
@@ -66,8 +66,11 @@ namespace ViajarSoft.Controllers.Api.V1
                 else
                 {
                     string token = headerValues.FirstOrDefault();
-                    respuestaIngreso = fachadaSeguridad.ActualizarToken(parametrosIngreso.Usuario, parametrosIngreso.Clave, parametrosIngreso.IpUsuario, token);
-                    respuesta.StatusCode = HttpStatusCode.OK;
+                    if (fachadaSeguridad.ValidarToken(token))
+                    {
+                        respuestaIngreso = fachadaSeguridad.ActualizarToken(parametrosIngreso.Usuario, parametrosIngreso.Clave, parametrosIngreso.IpUsuario, token);
+                        respuesta.StatusCode = HttpStatusCode.OK;
+                    }
                 }
             }
             catch (Exception ex)
@@ -82,7 +85,7 @@ namespace ViajarSoft.Controllers.Api.V1
             return respuesta;
         }
 
-        [HttpPost]
+        [HttpGet]
         public HttpResponseMessage Login(string token)
         {
             HttpResponseMessage respuesta = new HttpResponseMessage();

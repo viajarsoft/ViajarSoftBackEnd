@@ -11,8 +11,8 @@
     <Setting Name="SP_T250ELIMINARTOKEN" Type="System.String" Scope="Application">
       <Value Profile="(Default)">SP_T250ELIMINARTOKEN</Value>
     </Setting>
-    <Setting Name="SP_LOGIN" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">SP_LOGIN</Value>
+    <Setting Name="SP_T004LOGIN" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SP_T004LOGIN</Value>
     </Setting>
     <Setting Name="SP_T013LEEATRIBUTOSUSUARIO" Type="System.String" Scope="Application">
       <Value Profile="(Default)">SP_T013LEEATRIBUTOSUSUARIO</Value>

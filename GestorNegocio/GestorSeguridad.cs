@@ -40,27 +40,34 @@ namespace GestorNegocio
             RespuestaIngreso salida = null;
             RespuestaLogin respuestaLogin = repositorioSeguridad.Login(usuario, contrasena, ipUsuario,
                 Aplicacion.ObtenerComentarioAplicacion(), Aplicacion.ObtenerCodigoAplicacion());
-            if (respuestaLogin.Contrasena.Equals(contrasena))
+            if (respuestaLogin != null)
             {
-                RespuestaAtributosUsuario respuestaAtributosUsuario = LeerAtributosUsuario(usuario);
-                repositorioSeguridad.EliminarToken(token);
-                string tokenNuevo = new Guid().ToString();
-                DateTime fechaVencimiento = DateTime.Now.AddDays(int.Parse(Aplicacion.ObtenerDiasVencimiento()));
-                repositorioSeguridad.CrearToken(usuario, tokenNuevo, fechaVencimiento);
-                salida = repositorioSeguridad.ConsultarToken(token);
-                if (string.IsNullOrEmpty(salida.Token))
+                if (respuestaLogin.Contrasena.Equals(contrasena))
+                {
+                    RespuestaAtributosUsuario respuestaAtributosUsuario = LeerAtributosUsuario(usuario);
+                    repositorioSeguridad.EliminarToken(token);
+                    string tokenNuevo = Guid.NewGuid().ToString();
+                    DateTime fechaVencimiento = DateTime.Now.AddDays(int.Parse(Aplicacion.ObtenerDiasVencimiento()));
+                    repositorioSeguridad.CrearToken(usuario, tokenNuevo, fechaVencimiento);
+                    salida = repositorioSeguridad.ConsultarToken(tokenNuevo);
+                    if (string.IsNullOrEmpty(salida.Token))
+                    {
+                        throw new Exception("Usuario no válido");
+                    }
+                    salida.CodigoOficina = respuestaAtributosUsuario.CodigoOficina;
+                    salida.CodigoTaquilla = respuestaAtributosUsuario.CodigoTaquilla;
+                    salida.IdentificadorEmpresa = respuestaAtributosUsuario.IdentificadorEmpresa;
+                    salida.FechaVencimiento = fechaVencimiento;
+                    salida.Token = tokenNuevo;
+                }
+                else
                 {
                     throw new Exception("Usuario no válido");
                 }
-                salida.CodigoOficina = respuestaAtributosUsuario.CodigoOficina;
-                salida.CodigoTaquilla = respuestaAtributosUsuario.CodigoTaquilla;
-                salida.IdentificadorEmpresa = respuestaAtributosUsuario.IdentificadorEmpresa;
-                salida.FechaVencimiento = fechaVencimiento;
-                salida.Token = tokenNuevo;
             }
             else
             {
-                throw new Exception("Usuario no válido");
+                throw new Exception("Usuario no existe");
             }
             return salida;
         }
@@ -70,26 +77,33 @@ namespace GestorNegocio
             RespuestaIngreso salida = null;
             RespuestaLogin respuestaLogin = repositorioSeguridad.Login(usuario, contrasena, ipUsuario,
                 Aplicacion.ObtenerComentarioAplicacion(), Aplicacion.ObtenerCodigoAplicacion());
-            if (respuestaLogin.Contrasena.Equals(contrasena))
+            if (respuestaLogin != null)
             {
-                RespuestaAtributosUsuario respuestaAtributosUsuario = LeerAtributosUsuario(usuario);
-                string token = new Guid().ToString();
-                DateTime fechaVencimiento = DateTime.Now.AddDays(int.Parse(Aplicacion.ObtenerDiasVencimiento()));
-                repositorioSeguridad.CrearToken(usuario, token, fechaVencimiento);
-                salida = repositorioSeguridad.ConsultarToken(token);
-                if (string.IsNullOrEmpty(salida.Token))
+                if (respuestaLogin.Contrasena.Equals(contrasena))
+                {
+                    RespuestaAtributosUsuario respuestaAtributosUsuario = LeerAtributosUsuario(usuario);
+                    string token = Guid.NewGuid().ToString();
+                    DateTime fechaVencimiento = DateTime.Now.AddDays(int.Parse(Aplicacion.ObtenerDiasVencimiento()));
+                    repositorioSeguridad.CrearToken(usuario, token, fechaVencimiento);
+                    salida = repositorioSeguridad.ConsultarToken(token);
+                    if (string.IsNullOrEmpty(salida.Token))
+                    {
+                        throw new Exception("Usuario no válido");
+                    }
+                    salida.CodigoOficina = respuestaAtributosUsuario.CodigoOficina;
+                    salida.CodigoTaquilla = respuestaAtributosUsuario.CodigoTaquilla;
+                    salida.IdentificadorEmpresa = respuestaAtributosUsuario.IdentificadorEmpresa;
+                    salida.FechaVencimiento = fechaVencimiento;
+                    salida.Token = token;
+                }
+                else
                 {
                     throw new Exception("Usuario no válido");
                 }
-                salida.CodigoOficina = respuestaAtributosUsuario.CodigoOficina;
-                salida.CodigoTaquilla = respuestaAtributosUsuario.CodigoTaquilla;
-                salida.IdentificadorEmpresa = respuestaAtributosUsuario.IdentificadorEmpresa;
-                salida.FechaVencimiento = fechaVencimiento;
-                salida.Token = token;
             }
             else
             {
-                throw new Exception("Usuario no válido");
+                throw new Exception("Usuario no existe");
             }
             return salida;
         }

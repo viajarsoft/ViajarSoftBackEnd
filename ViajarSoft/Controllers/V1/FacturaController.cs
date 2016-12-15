@@ -7,36 +7,166 @@ using System.Xml;
 using Modelo.Seguridad;
 using Modelo.Factura;
 using Fachada;
-
+using InterfasesFachada;
+using System.Net.Http;
+using GestorConfiguracion;
+using Newtonsoft.Json;
 
 
 namespace ViajarSoft.Controllers.Api.V1
 {
     public class FacturaController : ApiController
     {
+        private IFachadaFactura fachadaFactura;
+        private IFachadaSeguridad fachadaSeguridad;
 
-        //private IFa negocioFacturas;
+        public FacturaController()
+        {
 
-        //public FacturaController()
-        //{
+        }
 
-        //}
+        public FacturaController(IFachadaFactura fachadaFactura,IFachadaSeguridad fachadaSeguridad)
+        {
+            this.fachadaFactura = fachadaFactura;
+            this.fachadaSeguridad = fachadaSeguridad;
+        }
 
-        //public FacturaController(IGestorFacturas negocioFacturas)
-        //{
-        //    this.negocioFacturas= negocioFacturas;
-        //}
+        [HttpGet]
+        public HttpResponseMessage ObtenerTiposDeAutoActivos()
+        {
+            HttpResponseMessage respuesta = new HttpResponseMessage();
+            RespuestaTiposBus respuestaTipoBus = new RespuestaTiposBus();
+            try
+            {
+                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
+                if (headerValues == null)
+                {
+                    respuesta.StatusCode = HttpStatusCode.BadRequest;
+                    respuestaTipoBus.Mensaje = "Sin token";
+                }
+                else
+                {
+                    string token = headerValues.FirstOrDefault();
+                    respuestaTipoBus.TiposBus = fachadaFactura.ObtenerTiposDeAutoActivos();
+                    respuesta.StatusCode = HttpStatusCode.OK;
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                respuestaTipoBus.Mensaje = ex.Message;
+            }
+            finally
+            {
+                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaTipoBus));
+            }
+            return respuesta;
+        }
 
-        //[HttpGet]
-        //public IEnumerable<Factura> All()
-        //{
-        //    IEnumerable<string> headerValues;
-        //    this.Request.Headers.TryGetValues("token", out headerValues);
-        //    string[] credenciales = headerValues.FirstOrDefault().Split('|');
-        //    Credencial credencial = new Credencial(credenciales[0],credenciales[1]);
-        //    negocioFacturas.EstablecerCredenciales(credencial);
-        //    return negocioFacturas.ObtenerFacturas();
-        //}
+        [HttpGet]
+        public HttpResponseMessage ObtenerOficinaVendedor(string codigoOficina)
+        {
+            HttpResponseMessage respuesta = new HttpResponseMessage();
+            RespuestaOficinaVenta respuestaOficinaVenta = new RespuestaOficinaVenta();
+            try
+            {
+                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
+                if (headerValues == null)
+                {
+                    respuesta.StatusCode = HttpStatusCode.BadRequest;
+                    respuestaOficinaVenta.Mensaje = "Sin token";
+                }
+                else
+                {
+                    string token = headerValues.FirstOrDefault();
+                    if (fachadaSeguridad.ValidarToken(token))
+                    {
+                        respuestaOficinaVenta.OficinaVenta = fachadaFactura.ObtenerOficinaVendedor(codigoOficina);
+                        respuesta.StatusCode = HttpStatusCode.OK;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                respuestaOficinaVenta.Mensaje = ex.Message;
+            }
+            finally
+            {
+                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaOficinaVenta));
+            }
+            return respuesta;
+        }
 
-   }
+        [HttpGet]
+        public HttpResponseMessage ObtenerRutas(string codigoOficinaOrigen)
+        {
+            HttpResponseMessage respuesta = new HttpResponseMessage();
+            RespuestaRuta respuestaRuta = new RespuestaRuta();
+            try
+            {
+                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
+                if (headerValues == null)
+                {
+                    respuesta.StatusCode = HttpStatusCode.BadRequest;
+                    respuestaRuta.Mensaje = "Sin token";
+                }
+                else
+                {
+                    string token = headerValues.FirstOrDefault();
+                    if (fachadaSeguridad.ValidarToken(token))
+                    {
+                        respuestaRuta.Rutas = fachadaFactura.ObtenerRutas(codigoOficinaOrigen);
+                        respuesta.StatusCode = HttpStatusCode.OK;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                respuestaRuta.Mensaje = ex.Message;
+            }
+            finally
+            {
+                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaRuta));
+            }
+            return respuesta;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage ObtenerPreciosDestino(SolicitudPrecioDestino solicitudPrecioDestino)
+        {
+            HttpResponseMessage respuesta = new HttpResponseMessage();
+            RespuestaPrecioDestino respuestaPrecioDestino = new RespuestaPrecioDestino();
+            try
+            {
+                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
+                if (headerValues == null)
+                {
+                    respuesta.StatusCode = HttpStatusCode.BadRequest;
+                    respuestaPrecioDestino.Mensaje = "Sin token";
+                }
+                else
+                {
+                    string token = headerValues.FirstOrDefault();
+                    if (fachadaSeguridad.ValidarToken(token))
+                    {
+                        respuestaPrecioDestino.PreciosDestino = fachadaFactura.ObtenerPreciosDestino(solicitudPrecioDestino.CodigoTipoBus,
+                            solicitudPrecioDestino.CodigoRuta, solicitudPrecioDestino.CodigoTipoPasaje);
+                        respuesta.StatusCode = HttpStatusCode.OK;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                respuestaPrecioDestino.Mensaje = ex.Message;
+            }
+            finally
+            {
+                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaPrecioDestino));
+            }
+            return respuesta;
+        }
+    }
 }
