@@ -47,8 +47,11 @@ namespace ViajarSoft.Controllers.Api.V1
                 else
                 {
                     string token = headerValues.FirstOrDefault();
-                    respuestaTipoBus.TiposBus = fachadaFactura.ObtenerTiposDeAutoActivos();
-                    respuesta.StatusCode = HttpStatusCode.OK;
+                    if (fachadaSeguridad.ValidarToken(token))
+                    {
+                        respuestaTipoBus.TiposBus = fachadaFactura.ObtenerTiposDeAutoActivos();
+                        respuesta.StatusCode = HttpStatusCode.OK;
+                    }
                 }
             }
             catch (Exception ex)
