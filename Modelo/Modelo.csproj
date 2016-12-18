@@ -46,9 +46,15 @@
     <Compile Include="Factura\RespuestaPrecioDestino.cs" />
     <Compile Include="Factura\RespuestaRuta.cs" />
     <Compile Include="Factura\RespuestaTiposBus.cs" />
+    <Compile Include="Factura\RespuestaTipoTiquete.cs" />
+    <Compile Include="Factura\RespuestaVentaTiquete.cs" />
     <Compile Include="Factura\Ruta.cs" />
     <Compile Include="Factura\SolicitudPrecioDestino.cs" />
+    <Compile Include="Factura\SolicitudTipoTiquete.cs" />
+    <Compile Include="Factura\SolicitudVentaTiquete.cs" />
     <Compile Include="Factura\TipoBus.cs" />
+    <Compile Include="Factura\TipoTiquete.cs" />
+    <Compile Include="Factura\VentaTiquete.cs" />
     <Compile Include="Respuesta.cs" />
     <Compile Include="Seguridad\Credencial.cs" />
     <Compile Include="Factura\Factura.cs" />

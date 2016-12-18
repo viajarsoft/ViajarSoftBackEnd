@@ -42,5 +42,15 @@ namespace Fachada
         {
             return gestorFactura.ObtenerPreciosDestino(codigoTipoBus, codigoRuta, codigoTipoPasaje);
         }
+
+        public List<Modelo.Factura.TipoTiquete> ObtenerTiposTiquete(string codigoTipoBus, string codigoRuta)
+        {
+            return gestorFactura.ObtenerTiposTiquete(codigoTipoBus, codigoRuta);
+        }
+
+        public Modelo.Factura.VentaTiquete VentaTiquete(string codigoRuta, string codigoVendedor, decimal valorTiquete, string tipoTiquete, decimal valorSeguro, string tipoBus, string codigoOficina)
+        {
+            return gestorFactura.VentaTiquete(codigoRuta, codigoVendedor, valorTiquete, tipoTiquete, valorSeguro, tipoBus, codigoOficina);
+        }
     }
 }

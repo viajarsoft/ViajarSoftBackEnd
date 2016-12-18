@@ -103,5 +103,32 @@ namespace RepositorioProduccion {
                 return ((string)(this["SP_T011RUTASPPAL_NOMBRE_ORI"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T017TIPOTiqueterlectro")]
+        public string SP_T017TIPOTiqueterlectro {
+            get {
+                return ((string)(this["SP_T017TIPOTiqueterlectro"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T050VENTAS_Insertar")]
+        public string SP_T050VENTAS_Insertar {
+            get {
+                return ((string)(this["SP_T050VENTAS_Insertar"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T050TiqueteImp")]
+        public string SP_T050TiqueteImp {
+            get {
+                return ((string)(this["SP_T050TiqueteImp"]));
+            }
+        }
     }
 }

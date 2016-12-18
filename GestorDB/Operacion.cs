@@ -12,6 +12,7 @@ namespace GestorDB
     public class Operacion : IDisposable, GestorDB.IOperacion
     {
         private SqlConnection conexion;
+        private string nombreConexion;
 
         public Operacion(string nombreConexion)
         {
@@ -20,9 +21,10 @@ namespace GestorDB
             {
                 conexion.Open();
             }
+            this.nombreConexion = nombreConexion;
         }
 
-        public DataTable EjecutarConDatosEnTabla(string procedimientoAlmacenado,List<SqlParameter> parametros)
+        public DataTable EjecutarConDatosEnTabla(string procedimientoAlmacenado, List<SqlParameter> parametros)
         {
             DataTable salida = new DataTable();
             using (SqlDataAdapter adaptador = new SqlDataAdapter())

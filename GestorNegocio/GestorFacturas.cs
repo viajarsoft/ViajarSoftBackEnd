@@ -21,11 +21,6 @@ namespace GestorNegocio
             repositorioFactura = FabricaGestorFactura.Crear(Aplicacion.ObtenerAmbiente());
         }
 
-        public void EstablecerCredenciales(Credencial credencial)
-        {
-            this.credencial = credencial;
-        }
-
         public GestorFacturas(IRepositorioFactura repositorioFactura)
         {
             this.repositorioFactura = repositorioFactura;
@@ -50,5 +45,17 @@ namespace GestorNegocio
         {
             return repositorioFactura.ObtenerPreciosDestino(codigoTipoBus,codigoRuta,codigoTipoPasaje);
         }
+
+
+        public List<TipoTiquete> ObtenerTiposTiquete(string codigoTipoBus, string codigoRuta)
+        {
+            return repositorioFactura.ObtenerTiposTiquete(codigoTipoBus,codigoRuta);
+        }
+
+        public VentaTiquete VentaTiquete(string codigoRuta, string codigoVendedor, decimal valorTiquete, string tipoTiquete, decimal valorSeguro, string tipoBus, string codigoOficina)
+        {
+            return repositorioFactura.VentaTiquete(codigoRuta, codigoVendedor, valorTiquete, tipoTiquete, valorSeguro, tipoBus, codigoOficina);
+        }
+
     }
 }

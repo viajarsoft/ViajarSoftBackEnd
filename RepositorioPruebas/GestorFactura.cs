@@ -33,5 +33,17 @@ namespace RepositorioPruebas
         {
             throw new NotImplementedException();
         }
+
+
+        public List<TipoTiquete> ObtenerTiposTiquete(string codigoTipoBus, string codigoRuta)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public VentaTiquete VentaTiquete(string codigoRuta, string codigoVendedor, decimal valorTiquete, string tipoTiquete, decimal valorSeguro, string tipoBus, string codigoOficina)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

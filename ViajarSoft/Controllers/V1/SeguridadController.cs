@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Modelo.Seguridad;
 using GestorConfiguracion;
+using System.Data.SqlClient;
 
 namespace ViajarSoft.Controllers.Api.V1
 {
@@ -39,7 +40,14 @@ namespace ViajarSoft.Controllers.Api.V1
             }
             catch (Exception ex)
             {
-                respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                if (ex.GetType().FullName.Contains("SqlException"))
+                {
+                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                }
+                else
+                {
+                    respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                }
                 respuestaIngreso.Mensaje = ex.Message;
             }
             finally
@@ -75,7 +83,14 @@ namespace ViajarSoft.Controllers.Api.V1
             }
             catch (Exception ex)
             {
-                respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                if (ex.GetType().FullName.Contains("SqlException"))
+                {
+                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                }
+                else
+                {
+                    respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                }
                 respuestaIngreso.Mensaje = ex.Message;
             }
             finally
@@ -97,7 +112,14 @@ namespace ViajarSoft.Controllers.Api.V1
             }
             catch (Exception ex)
             {
-                respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                if (ex.GetType().FullName.Contains("SqlException"))
+                {
+                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                }
+                else
+                {
+                    respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                }
                 respuestaIngreso.Mensaje = ex.Message;
             }
             finally

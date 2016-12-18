@@ -29,5 +29,14 @@
     <Setting Name="SP_T011RUTASPPAL_NOMBRE_ORI" Type="System.String" Scope="Application">
       <Value Profile="(Default)">SP_T011RUTASPPAL_NOMBRE_ORI</Value>
     </Setting>
+    <Setting Name="SP_T017TIPOTiqueterlectro" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SP_T017TIPOTiqueterlectro</Value>
+    </Setting>
+    <Setting Name="SP_T050VENTAS_Insertar" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SP_T050VENTAS_Insertar</Value>
+    </Setting>
+    <Setting Name="SP_T050TiqueteImp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SP_T050TiqueteImp</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

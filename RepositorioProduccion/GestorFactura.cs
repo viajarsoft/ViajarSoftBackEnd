@@ -116,5 +116,68 @@ namespace RepositorioProduccion
             }
             return salida;
         }
+
+        public List<TipoTiquete> ObtenerTiposTiquete(string codigoTipoBus, string codigoRuta)
+        {
+            List<TipoTiquete> salida = null;
+            using (Operacion operacion = new Operacion(sistema))
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@as_tipobus", Value = codigoTipoBus });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@as_ruta", Value = codigoRuta });
+
+                DataTable salidaOperacion = operacion.EjecutarConDatosEnTabla(Procedimientos.Default.SP_T017TIPOTiqueterlectro, parametros);
+                if (salidaOperacion != null)
+                {
+                    if (salidaOperacion.Rows.Count > 0)
+                    {
+                        salida = new List<TipoTiquete>();
+                        foreach (DataRow itemOperacion in salidaOperacion.Rows)
+                        {
+                            salida.Add(new TipoTiquete()
+                            {
+                                Tipo = itemOperacion["a017_tipotique"].ToString(),
+                                Descripcion = itemOperacion["a017_descri"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            return salida;
+        }
+
+        public VentaTiquete VentaTiquete(string codigoRuta, string codigoVendedor, decimal valorTiquete, string tipoTiquete, decimal valorSeguro, string tipoBus, string codigoOficina)
+        {
+            VentaTiquete salida = null;
+            using (Operacion operacion = new Operacion(sistema))
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@A_CODORIDES", Value = codigoRuta });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@A_CODTAQUI", Value = codigoVendedor });
+                parametros.Add(new SqlParameter() { DbType = DbType.Decimal, ParameterName = "@A_VALTIQUE", Value = valorTiquete });
+                parametros.Add(new SqlParameter() { DbType = DbType.Int32, ParameterName = "@A_CANT", Value = 1 });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@A_NROSALIDA", Value = "0000000" });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@A_TIPOTIQUE", Value = tipoTiquete });
+                parametros.Add(new SqlParameter() { DbType = DbType.Decimal, ParameterName = "@A_VALORSEGURO", Value = valorSeguro });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@A_TIPOBUS", Value = tipoBus });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@A_CODOFICINA", Value = codigoOficina });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@A_IDENTIFICACION", Value = DBNull.Value });
+                parametros.Add(new SqlParameter() { DbType = DbType.Int32, ParameterName = "@A_TIPOVENTA", Value = 1 });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@A_CLIENTE", Value = DBNull.Value });
+
+                DataTable salidaOperacion = operacion.EjecutarConDatosEnTabla(Procedimientos.Default.SP_T050VENTAS_Insertar, parametros);
+                if (salidaOperacion != null)
+                {
+                    if (salidaOperacion.Rows.Count > 0)
+                    {
+                        salida = new VentaTiquete(){
+                            CodigoRespuesta = int.Parse(salidaOperacion.Rows[0]["Resultado"].ToString()),
+                            NumeroTiquete = salidaOperacion.Rows[0]["NumeroTiquete"].ToString()
+                        };
+                    }
+                }
+            }
+            return salida;
+        }
     }
 }
