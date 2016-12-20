@@ -16,5 +16,9 @@ namespace InterfasesNegocio
         List<PrecioDestino> ObtenerPreciosDestino(string codigoTipoBus, string codigoRuta, string codigoTipoPasaje);
         List<TipoTiquete> ObtenerTiposTiquete(string codigoTipoBus, string codigoRuta);
         VentaTiquete VentaTiquete(string codigoRuta, string codigoVendedor, decimal valorTiquete, string tipoTiquete, decimal valorSeguro, string tipoBus, string codigoOficina);
+        ImpresionTiquete ImprimirTiquete(string numeroTiquete);
+        VentaPorLiquidar ObtenerResumenVentasPorLiquidar(string codigoOficina, string codigoTaquilla);
+        LiquidacionGenerada ObtenerLiquidacionTaquillero(string codigoOficina, string codigoTaquilla, DateTime fechaVenta, string codigoUsuario);
+        ReporteImpresionLiquidacion ObtenerImpresionLiquidacion(string codigoOficina, string numeroLiquidacion);
     }
 }

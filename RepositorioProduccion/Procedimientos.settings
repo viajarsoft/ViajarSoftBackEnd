@@ -38,5 +38,17 @@
     <Setting Name="SP_T050TiqueteImp" Type="System.String" Scope="Application">
       <Value Profile="(Default)">SP_T050TiqueteImp</Value>
     </Setting>
+    <Setting Name="SP_T050VENTASXLIQUIDAR_Resumen" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SP_T050VENTASXLIQUIDAR_Resumen</Value>
+    </Setting>
+    <Setting Name="SP_T054LIQUITAQUILLERO_Generar" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SP_T054LIQUITAQUILLERO_Generar</Value>
+    </Setting>
+    <Setting Name="sp_t050factuventaprecio" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sp_t050factuventaprecio</Value>
+    </Setting>
+    <Setting Name="SP_T250ELIMINARTOKENPPORUSUARIO" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SP_T250ELIMINARTOKENPPORUSUARIO</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

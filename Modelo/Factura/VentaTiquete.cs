@@ -10,5 +10,6 @@ namespace Modelo.Factura
     {
         public int CodigoRespuesta { get; set; }
         public string NumeroTiquete { get; set; }
+        public string Mensaje { get; set; }
     }
 }

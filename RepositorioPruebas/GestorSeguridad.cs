@@ -13,17 +13,6 @@ namespace RepositorioPruebas
     public class GestorSeguridad : IRepositorioSeguridad
     {
 
-        public RespuestaLogin Login(string usuario, string contrasena, string nombreEstacion, string comentarioAplicacion, string codigoAplicacion)
-        {
-            return new RespuestaLogin(usuario, usuario) { Contrasena = contrasena };
-        }
-
-
-        public RespuestaAtributosUsuario LeerAtributosUsuario(string usuario)
-        {
-            return new RespuestaAtributosUsuario() { CodigoOficina = "001OFI", CodigoTaquilla = "TAQU001", IdentificadorEmpresa = "TRANS" };
-        }
-
         public void CrearToken(string usuario, string token, DateTime fechaVencimiento)
         {
             throw new NotImplementedException();
@@ -35,6 +24,21 @@ namespace RepositorioPruebas
         }
 
         public void EliminarToken(string token)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EliminarTokenPorUsuario(string usuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public RespuestaLogin Login(string usuario, string contrasena, string nombreEstacion, string comentarioAplicacion, string codigoAplicacion)
+        {
+            throw new NotImplementedException();
+        }
+
+        public RespuestaAtributosUsuario LeerAtributosUsuario(string usuario)
         {
             throw new NotImplementedException();
         }

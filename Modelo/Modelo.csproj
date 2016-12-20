@@ -40,30 +40,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factura\DetalleImpresionLiquidacion.cs" />
+    <Compile Include="Factura\ReporteImpresionLiquidacion.cs" />
+    <Compile Include="Factura\ImpresionLiquidacion.cs" />
+    <Compile Include="Factura\ImpresionTiquete.cs" />
+    <Compile Include="Factura\LiquidacionGenerada.cs" />
     <Compile Include="Factura\OficinaVenta.cs" />
     <Compile Include="Factura\PrecioDestino.cs" />
-    <Compile Include="Factura\RespuestaOficinaVenta.cs" />
-    <Compile Include="Factura\RespuestaPrecioDestino.cs" />
-    <Compile Include="Factura\RespuestaRuta.cs" />
-    <Compile Include="Factura\RespuestaTiposBus.cs" />
-    <Compile Include="Factura\RespuestaTipoTiquete.cs" />
-    <Compile Include="Factura\RespuestaVentaTiquete.cs" />
+    <Compile Include="Factura\Respuestas\RespuestaImpresion.cs" />
+    <Compile Include="Factura\Respuestas\RespuestaImpresionLiquidacion.cs" />
+    <Compile Include="Factura\Respuestas\RespuestaLiquidacionTaquillero.cs" />
+    <Compile Include="Factura\Respuestas\RespuestaOficinaVenta.cs" />
+    <Compile Include="Factura\Respuestas\RespuestaPrecioDestino.cs" />
+    <Compile Include="Factura\Respuestas\RespuestaRuta.cs" />
+    <Compile Include="Factura\Respuestas\RespuestaTiposBus.cs" />
+    <Compile Include="Factura\Respuestas\RespuestaTipoTiquete.cs" />
+    <Compile Include="Factura\Respuestas\RespuestaVentasPorLiquidar.cs" />
+    <Compile Include="Factura\Respuestas\RespuestaVentaTiquete.cs" />
     <Compile Include="Factura\Ruta.cs" />
-    <Compile Include="Factura\SolicitudPrecioDestino.cs" />
-    <Compile Include="Factura\SolicitudTipoTiquete.cs" />
-    <Compile Include="Factura\SolicitudVentaTiquete.cs" />
+    <Compile Include="Factura\Solicitudes\SolicitudImpresionLiquidacion.cs" />
+    <Compile Include="Factura\Solicitudes\SolicitudLiquidacionTaquillero.cs" />
+    <Compile Include="Factura\Solicitudes\SolicitudPrecioDestino.cs" />
+    <Compile Include="Factura\Solicitudes\SolicitudTipoTiquete.cs" />
+    <Compile Include="Factura\Solicitudes\SolicitudVentasPorLiquidar.cs" />
+    <Compile Include="Factura\Solicitudes\SolicitudVentaTiquete.cs" />
     <Compile Include="Factura\TipoBus.cs" />
     <Compile Include="Factura\TipoTiquete.cs" />
+    <Compile Include="Factura\VentaPorLiquidar.cs" />
     <Compile Include="Factura\VentaTiquete.cs" />
     <Compile Include="Respuesta.cs" />
     <Compile Include="Seguridad\Credencial.cs" />
     <Compile Include="Factura\Factura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Seguridad\RespuestaAtributosUsuario.cs" />
-    <Compile Include="Seguridad\RespuestaIngreso.cs" />
-    <Compile Include="Seguridad\RespuestaLogin.cs" />
-    <Compile Include="Seguridad\SolicitudIngreso.cs" />
-    <Compile Include="Seguridad\SolicitudLoginToken.cs" />
+    <Compile Include="Seguridad\Respuesta\RespuestaAtributosUsuario.cs" />
+    <Compile Include="Seguridad\Respuesta\RespuestaIngreso.cs" />
+    <Compile Include="Seguridad\Respuesta\RespuestaLogin.cs" />
+    <Compile Include="Seguridad\Solicitud\SolicitudIngreso.cs" />
+    <Compile Include="Seguridad\Solicitud\SolicitudLoginToken.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

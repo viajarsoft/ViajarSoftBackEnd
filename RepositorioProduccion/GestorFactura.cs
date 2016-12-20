@@ -170,10 +170,173 @@ namespace RepositorioProduccion
                 {
                     if (salidaOperacion.Rows.Count > 0)
                     {
-                        salida = new VentaTiquete(){
+                        salida = new VentaTiquete()
+                        {
                             CodigoRespuesta = int.Parse(salidaOperacion.Rows[0]["Resultado"].ToString()),
-                            NumeroTiquete = salidaOperacion.Rows[0]["NumeroTiquete"].ToString()
+                            NumeroTiquete = salidaOperacion.Rows[0]["NumeroTiquete"].ToString(),
+                            Mensaje = salidaOperacion.Rows[0]["NumeroTiquete"].ToString()
                         };
+                    }
+                }
+            }
+            return salida;
+        }
+
+
+        public ImpresionTiquete ImprimirTiquete(string numeroTiquete)
+        {
+            ImpresionTiquete salida = null;
+            using (Operacion operacion = new Operacion(sistema))
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@as_tiquete", Value = numeroTiquete });
+
+                DataTable salidaOperacion = operacion.EjecutarConDatosEnTabla(Procedimientos.Default.SP_T050TiqueteImp, parametros);
+                if (salidaOperacion != null)
+                {
+                    if (salidaOperacion.Rows.Count > 0)
+                    {
+                        DataRow registro = salidaOperacion.Rows[0];
+                        salida = new ImpresionTiquete()
+                        {
+                            Origen = registro["origen"].ToString(),
+                            Destino = registro["destino"].ToString(),
+                            Tiquete = registro["TIQUETE"].ToString(),
+                            Valor = registro["VALOR"].ToString(),
+                            ValorSeguro = registro["A050_VALORSEGURO"].ToString(),
+                            Vendedor = registro["VENDEDOR"].ToString(),
+                            FechaVenta = registro["FECHA_VENTA"].ToString(),
+                            TipoVH = registro["TIPO_VH"].ToString(),
+                            NumeroBus = registro["NRO_BUS"].ToString(),
+                            FechaSalida = registro["FECHA_SALIDA"].ToString(),
+                            Cantidad = registro["CANTIDAD"].ToString(),
+                            RazonSocial = registro["RAZON_SOCIAL"].ToString(),
+                            Nit = registro["NIT"].ToString(),
+                            Telefono = registro["TELEFONO"].ToString(),
+                            Placa = registro["PLACA"].ToString(),
+                            Cupo = registro["CUPO"].ToString(),
+                            DescuentoTiquete = registro["desc_tiquete"].ToString(),
+                            TipoVenta = registro["tipo_venta"].ToString(),
+                            Identificacion = registro["identificacion"].ToString(),
+                            NombreCliente = registro["nombre_cliente"].ToString(),
+                            ValorUsuario = registro["valor_usuario"].ToString(),
+                            Comp = registro["Comp"].ToString(),
+                            CodRuta = registro["CodRuta"].ToString(),
+                            RutaTerminal = registro["RutaTerminal"].ToString()
+                        };
+                    }
+                }
+            }
+            return salida;
+        }
+
+        public VentaPorLiquidar ObtenerResumenVentasPorLiquidar(string codigoOficina, string codigoTaquilla)
+        {
+            VentaPorLiquidar salida = null;
+            using (Operacion operacion = new Operacion(sistema))
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@as_oficina", Value = codigoOficina });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@as_codtaqui", Value = codigoTaquilla });
+                parametros.Add(new SqlParameter() { DbType = DbType.Int32, ParameterName = "@ai_tipoventa", Value = 1 });
+                DataTable salidaOperacion = operacion.EjecutarConDatosEnTabla(Procedimientos.Default.SP_T050VENTASXLIQUIDAR_Resumen, parametros);
+                if (salidaOperacion != null)
+                {
+                    if (salidaOperacion.Rows.Count > 0)
+                    {
+                        DataRow registro = salidaOperacion.Rows[0];
+                        salida = new VentaPorLiquidar()
+                        {
+                            CodigoOficina = registro["CodOficina"].ToString(),
+                            CodigoTaquilla = registro["CodTaqui"].ToString(),
+                            CodigoTipoTiquete = registro["TipoTique"].ToString(),
+                            FechaVenta = DateTime.Parse(registro["FecVenta"].ToString()),
+                            Cantidad = int.Parse(registro["Cant"].ToString()),
+                            ValorTiquete = decimal.Parse(registro["ValTique"].ToString()),
+                            ValorSeguro = decimal.Parse(registro["ValSeguro"].ToString())
+                        };
+                    }
+                }
+            }
+            return salida;
+        }
+
+        public LiquidacionGenerada ObtenerLiquidacionTaquillero(string codigoOficina, string codigoTaquilla, DateTime fechaVenta, string codigoUsuario)
+        {
+            LiquidacionGenerada salida = null;
+            using (Operacion operacion = new Operacion(sistema))
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@as_oficina", Value = codigoOficina });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@as_codtaqui", Value = codigoTaquilla });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@ai_tipoventa", Value = 1 });
+                parametros.Add(new SqlParameter() { DbType = DbType.DateTime, ParameterName = "@ad_FecVenta", Value = fechaVenta });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@A_usuario", Value = codigoUsuario });
+
+                DataTable salidaOperacion = operacion.EjecutarConDatosEnTabla(Procedimientos.Default.SP_T054LIQUITAQUILLERO_Generar, parametros);
+                if (salidaOperacion != null)
+                {
+                    if (salidaOperacion.Rows.Count > 0)
+                    {
+                        DataRow registro = salidaOperacion.Rows[0];
+                        salida = new LiquidacionGenerada()
+                        {
+                            NumeroLiquidacion = registro["A054_NROLIQUI"].ToString(),
+                            FechaLiquidacion = registro["A054_FECLIQUI"].ToString(),
+                            Valor = decimal.Parse(registro["A054_VALOR"].ToString()),
+                            Usuario = registro["A054_USUARIO"].ToString(),
+                            CodigoOficina = registro["A054_CODOFICINA"].ToString(),
+                            CantidadTiquetes = int.Parse(registro["A054_CANTTIQUE"].ToString()),
+                            CodigoTaquilla = registro["a054_codtaqui"].ToString(),
+                            ValorTotal = decimal.Parse(registro["a054_valortotal"].ToString()),
+                            TotalSeguro = decimal.Parse(registro["a054_totalseguro"].ToString()),
+                            IdPago = registro["a054_idpago"].ToString(),
+                            Identificacion = registro["A054_Identificacion"].ToString(),
+                            IdOrigen = registro["a054_idorigen"].ToString(),
+                            Placa = registro["a054_placa"].ToString(),
+                            TiempoEsperado = registro["a054_tiempoesperado"].ToString(),
+                            Tipoliquidacion = registro["a054_tipoliquidacion"].ToString()
+                        };
+                    }
+                }
+            }
+            return salida;
+        }
+
+
+        public List<ImpresionLiquidacion> ObtenerImpresionLiquidacion(string codigoOficina, string NumeroLiquidacion)
+        {
+            List<ImpresionLiquidacion> salida = null;
+            using (Operacion operacion = new Operacion(sistema))
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@AS_Oficina", Value = codigoOficina });
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@AS_FACTURA", Value = NumeroLiquidacion });
+
+                DataTable salidaOperacion = operacion.EjecutarConDatosEnTabla(Procedimientos.Default.sp_t050factuventaprecio, parametros);
+                if (salidaOperacion != null)
+                {
+                    if (salidaOperacion.Rows.Count > 0)
+                    {
+                        salida = new List<ImpresionLiquidacion>();
+                        foreach (DataRow itemOperacion in salidaOperacion.Rows)
+                        {
+                            salida.Add(new ImpresionLiquidacion()
+                            {
+                                CodigoVendedor = itemOperacion["vendedor"].ToString(),
+                                ValorTiquete = decimal.Parse(itemOperacion["A050_VALTIQUE"].ToString()),
+                                Cantidad = int.Parse(itemOperacion["cantidad"].ToString()),
+                                NumeroLiquidacion = itemOperacion["nroliqui"].ToString(),
+                                CodigoTipoTiquete = itemOperacion["A050_TIPOTIQUE"].ToString(),
+                                ValorSeguro = decimal.Parse(itemOperacion["valorseg"].ToString()),
+                                CodigoTipoBus = itemOperacion["A050_TIPOBUS"].ToString(),
+                                CodigoOficina = itemOperacion["codoficina"].ToString(),
+                                FechaLiquidacion = DateTime.Parse(itemOperacion["fecliqui"].ToString()),
+                                CodigoTaquilla = itemOperacion["codtaqui"].ToString(),
+                                TipoVenta = itemOperacion["tipoVenta"].ToString(),
+                                FechaIngreso = DateTime.Parse(itemOperacion["FechaIngreso"].ToString())
+                            });
+                        }
                     }
                 }
             }

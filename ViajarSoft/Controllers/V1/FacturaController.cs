@@ -287,5 +287,175 @@ namespace ViajarSoft.Controllers.Api.V1
             return respuesta;
         }
 
+        [HttpGet]
+        public HttpResponseMessage ImprimirTiquete(string numeroTiquete)
+        {
+            HttpResponseMessage respuesta = new HttpResponseMessage();
+            RespuestaImpresion respuestaImpresion = new RespuestaImpresion();
+            try
+            {
+                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
+                if (headerValues == null)
+                {
+                    respuesta.StatusCode = HttpStatusCode.BadRequest;
+                    respuestaImpresion.Mensaje = "Sin token";
+                }
+                else
+                {
+                    string token = headerValues.FirstOrDefault();
+                    if (fachadaSeguridad.ValidarToken(token))
+                    {
+                        respuestaImpresion.Impresion = fachadaFactura.ImprimirTiquete(numeroTiquete);
+                        respuesta.StatusCode = HttpStatusCode.OK;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetType().FullName.Contains("SqlException"))
+                {
+                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                }
+                else
+                {
+                    respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                }
+                respuestaImpresion.Mensaje = ex.Message;
+            }
+            finally
+            {
+                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaImpresion));
+            }
+            return respuesta;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage ObtenerResumenVentasPorLiquidar(SolicitudVentasPorLiquidar solicitudVentasPorLiquidar)
+        {
+            HttpResponseMessage respuesta = new HttpResponseMessage();
+            RespuestaVentasPorLiquidar respuestaVentasPorLiquidar = new RespuestaVentasPorLiquidar();
+            try
+            {
+                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
+                if (headerValues == null)
+                {
+                    respuesta.StatusCode = HttpStatusCode.BadRequest;
+                    respuestaVentasPorLiquidar.Mensaje = "Sin token";
+                }
+                else
+                {
+                    string token = headerValues.FirstOrDefault();
+                    if (fachadaSeguridad.ValidarToken(token))
+                    {
+                        respuestaVentasPorLiquidar.VentaPorLiquidar = fachadaFactura.ObtenerResumenVentasPorLiquidar(solicitudVentasPorLiquidar.CodigoOficina,solicitudVentasPorLiquidar.CodigoTaquilla);
+                        respuesta.StatusCode = HttpStatusCode.OK;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetType().FullName.Contains("SqlException"))
+                {
+                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                }
+                else
+                {
+                    respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                }
+                respuestaVentasPorLiquidar.Mensaje = ex.Message;
+            }
+            finally
+            {
+                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaVentasPorLiquidar));
+            }
+            return respuesta;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage ObtenerLiquidacionTaquillero(SolicitudLiquidacionTaquillero solicitudLiquidacionTaquillero)
+        {
+            HttpResponseMessage respuesta = new HttpResponseMessage();
+            RespuestaLiquidacionTaquillero respuestaLiquidacionTaquillero = new RespuestaLiquidacionTaquillero();
+            try
+            {
+                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
+                if (headerValues == null)
+                {
+                    respuesta.StatusCode = HttpStatusCode.BadRequest;
+                    respuestaLiquidacionTaquillero.Mensaje = "Sin token";
+                }
+                else
+                {
+                    string token = headerValues.FirstOrDefault();
+                    if (fachadaSeguridad.ValidarToken(token))
+                    {
+                        respuestaLiquidacionTaquillero.Liquidacion = fachadaFactura.ObtenerLiquidacionTaquillero(solicitudLiquidacionTaquillero.CodigoOficina,solicitudLiquidacionTaquillero.CodigoTaquilla,
+                            solicitudLiquidacionTaquillero.FechaVenta,solicitudLiquidacionTaquillero.CodigoUsuario);
+                        respuesta.StatusCode = HttpStatusCode.OK;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetType().FullName.Contains("SqlException"))
+                {
+                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                }
+                else
+                {
+                    respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                }
+                respuestaLiquidacionTaquillero.Mensaje = ex.Message;
+            }
+            finally
+            {
+                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaLiquidacionTaquillero));
+            }
+            return respuesta;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage ObtenerImpresionLiquidacion(SolicitudImpresionLiquidacion solicitudImpresionLiquidacion)
+        {
+            HttpResponseMessage respuesta = new HttpResponseMessage();
+            RespuestaImpresionLiquidacion respuestaImpresionLiquidacion = new RespuestaImpresionLiquidacion();
+            try
+            {
+                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
+                if (headerValues == null)
+                {
+                    respuesta.StatusCode = HttpStatusCode.BadRequest;
+                    respuestaImpresionLiquidacion.Mensaje = "Sin token";
+                }
+                else
+                {
+                    string token = headerValues.FirstOrDefault();
+                    if (fachadaSeguridad.ValidarToken(token))
+                    {
+                        respuestaImpresionLiquidacion.ImpresionLiquidacion = fachadaFactura.ObtenerImpresionLiquidacion(solicitudImpresionLiquidacion.CodigoOficina,
+                            solicitudImpresionLiquidacion.CodigoFactura);
+                        respuesta.StatusCode = HttpStatusCode.OK;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetType().FullName.Contains("SqlException") || ex.GetType().FullName.Contains("InvalidOperationException"))
+                {
+                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                }
+                else
+                {
+                    respuesta.StatusCode = HttpStatusCode.Unauthorized;
+                }
+                respuestaImpresionLiquidacion.Mensaje = ex.Message;
+            }
+            finally
+            {
+                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaImpresionLiquidacion));
+            }
+            return respuesta;
+        }
+
     }
 }

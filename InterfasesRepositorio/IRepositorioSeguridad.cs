@@ -12,6 +12,7 @@ namespace InterfasesRepositorio
         void CrearToken(string usuario, string token, DateTime fechaVencimiento);
         RespuestaIngreso ConsultarToken(string token);
         void EliminarToken(string token);
+        void EliminarTokenPorUsuario(string usuario);
         RespuestaLogin Login(string usuario, string contrasena, string nombreEstacion, string comentarioAplicacion, string codigoAplicacion);
         RespuestaAtributosUsuario LeerAtributosUsuario(string usuario);
     }

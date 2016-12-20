@@ -45,5 +45,26 @@ namespace RepositorioPruebas
         {
             throw new NotImplementedException();
         }
+
+
+        public ImpresionTiquete ImprimirTiquete(string numeroTiquete)
+        {
+            throw new NotImplementedException();
+        }
+
+        public VentaPorLiquidar ObtenerResumenVentasPorLiquidar(string codigoOficina, string codigoTaquilla)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LiquidacionGenerada ObtenerLiquidacionTaquillero(string codigoOficina, string codigoTaquilla, DateTime fechaVenta, string codigoUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ImpresionLiquidacion> ObtenerImpresionLiquidacion(string codigoOficina, string NumeroLiquidacion)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

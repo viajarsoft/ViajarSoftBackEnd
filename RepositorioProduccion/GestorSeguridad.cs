@@ -118,5 +118,16 @@ namespace RepositorioProduccion
             }
             return salida;
         }
+
+
+        public void EliminarTokenPorUsuario(string usuario)
+        {
+            using (Operacion operacion = new Operacion(sistema))
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@usuario", Value = usuario });
+                operacion.Ejecutar(Procedimientos.Default.SP_T250ELIMINARTOKENPPORUSUARIO, parametros);
+            }
+        }
     }
 }

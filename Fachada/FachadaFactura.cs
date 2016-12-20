@@ -52,5 +52,25 @@ namespace Fachada
         {
             return gestorFactura.VentaTiquete(codigoRuta, codigoVendedor, valorTiquete, tipoTiquete, valorSeguro, tipoBus, codigoOficina);
         }
+
+        public Modelo.Factura.ImpresionTiquete ImprimirTiquete(string numeroTiquete)
+        {
+            return gestorFactura.ImprimirTiquete(numeroTiquete);
+        }
+
+        public Modelo.Factura.VentaPorLiquidar ObtenerResumenVentasPorLiquidar(string codigoOficina, string codigoTaquilla)
+        {
+            return gestorFactura.ObtenerResumenVentasPorLiquidar(codigoOficina, codigoTaquilla);
+        }
+
+        public Modelo.Factura.LiquidacionGenerada ObtenerLiquidacionTaquillero(string codigoOficina, string codigoTaquilla, DateTime fechaVenta, string codigoUsuario)
+        {
+            return gestorFactura.ObtenerLiquidacionTaquillero(codigoOficina, codigoTaquilla, fechaVenta, codigoUsuario);
+        }
+
+        public Modelo.Factura.ReporteImpresionLiquidacion ObtenerImpresionLiquidacion(string codigoOficina, string numeroLiquidacion)
+        {
+            return gestorFactura.ObtenerImpresionLiquidacion(codigoOficina, numeroLiquidacion);
+        }
     }
 }

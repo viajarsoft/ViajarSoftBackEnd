@@ -130,5 +130,41 @@ namespace RepositorioProduccion {
                 return ((string)(this["SP_T050TiqueteImp"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T050VENTASXLIQUIDAR_Resumen")]
+        public string SP_T050VENTASXLIQUIDAR_Resumen {
+            get {
+                return ((string)(this["SP_T050VENTASXLIQUIDAR_Resumen"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T054LIQUITAQUILLERO_Generar")]
+        public string SP_T054LIQUITAQUILLERO_Generar {
+            get {
+                return ((string)(this["SP_T054LIQUITAQUILLERO_Generar"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sp_t050factuventaprecio")]
+        public string sp_t050factuventaprecio {
+            get {
+                return ((string)(this["sp_t050factuventaprecio"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SP_T250ELIMINARTOKENPPORUSUARIO")]
+        public string SP_T250ELIMINARTOKENPPORUSUARIO {
+            get {
+                return ((string)(this["SP_T250ELIMINARTOKENPPORUSUARIO"]));
+            }
+        }
     }
 }
