@@ -31,89 +31,6 @@ namespace ViajarSoft.Controllers.Api.V1
             this.fachadaSeguridad = fachadaSeguridad;
         }
 
-        [HttpGet]
-        public HttpResponseMessage ObtenerTiposDeAutoActivos()
-        {
-            HttpResponseMessage respuesta = new HttpResponseMessage();
-            RespuestaTiposBus respuestaTipoBus = new RespuestaTiposBus();
-            try
-            {
-                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
-                if (headerValues == null)
-                {
-                    respuesta.StatusCode = HttpStatusCode.BadRequest;
-                    respuestaTipoBus.Mensaje = "Sin token";
-                }
-                else
-                {
-                    string token = headerValues.FirstOrDefault();
-                    if (fachadaSeguridad.ValidarToken(token))
-                    {
-                        respuestaTipoBus.TiposBus = fachadaFactura.ObtenerTiposDeAutoActivos();
-                        respuesta.StatusCode = HttpStatusCode.OK;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (ex.GetType().FullName.Contains("SqlException"))
-                {
-                    respuesta.StatusCode = HttpStatusCode.Forbidden;
-                }
-                else
-                {
-                    respuesta.StatusCode = HttpStatusCode.Unauthorized;
-                }
-                respuestaTipoBus.Mensaje = ex.Message;
-            }
-            finally
-            {
-                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaTipoBus));
-            }
-            return respuesta;
-        }
-
-        [HttpGet]
-        public HttpResponseMessage ObtenerOficinaVendedor(string codigoOficina)
-        {
-            HttpResponseMessage respuesta = new HttpResponseMessage();
-            RespuestaOficinaVenta respuestaOficinaVenta = new RespuestaOficinaVenta();
-            try
-            {
-                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
-                if (headerValues == null)
-                {
-                    respuesta.StatusCode = HttpStatusCode.BadRequest;
-                    respuestaOficinaVenta.Mensaje = "Sin token";
-                }
-                else
-                {
-                    string token = headerValues.FirstOrDefault();
-                    if (fachadaSeguridad.ValidarToken(token))
-                    {
-                        respuestaOficinaVenta.OficinaVenta = fachadaFactura.ObtenerOficinaVendedor(codigoOficina);
-                        respuesta.StatusCode = HttpStatusCode.OK;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (ex.GetType().FullName.Contains("SqlException"))
-                {
-                    respuesta.StatusCode = HttpStatusCode.Forbidden;
-                }
-                else
-                {
-                    respuesta.StatusCode = HttpStatusCode.Unauthorized;
-                }
-                respuestaOficinaVenta.Mensaje = ex.Message;
-            }
-            finally
-            {
-                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaOficinaVenta));
-            }
-            return respuesta;
-        }
 
         [HttpGet]
         public HttpResponseMessage ObtenerRutas(string codigoOficinaOrigen)
@@ -134,6 +51,7 @@ namespace ViajarSoft.Controllers.Api.V1
                     if (fachadaSeguridad.ValidarToken(token))
                     {
                         respuestaRuta.Rutas = fachadaFactura.ObtenerRutas(codigoOficinaOrigen);
+                        respuestaRuta.TiposBus = fachadaFactura.ObtenerTiposDeAutoActivos();
                         respuesta.StatusCode = HttpStatusCode.OK;
                     }
                 }
@@ -264,6 +182,7 @@ namespace ViajarSoft.Controllers.Api.V1
                         respuestaVentaTiquete.VentaTiquete = fachadaFactura.VentaTiquete(solicitudVentaTiquete.CodigoRuta,solicitudVentaTiquete.CodigoTaquilla,
                             solicitudVentaTiquete.ValorTiquete,solicitudVentaTiquete.TipoTiquete,solicitudVentaTiquete.ValorSeguro,
                             solicitudVentaTiquete.CodigoTipoBus,solicitudVentaTiquete.CodigoOficina);
+                        respuestaVentaTiquete.ImpresionTiquete = fachadaFactura.ImprimirTiquete(respuestaVentaTiquete.VentaTiquete.NumeroTiquete);
                         respuesta.StatusCode = HttpStatusCode.OK;
                     }
                 }
@@ -283,48 +202,6 @@ namespace ViajarSoft.Controllers.Api.V1
             finally
             {
                 respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaVentaTiquete));
-            }
-            return respuesta;
-        }
-
-        [HttpGet]
-        public HttpResponseMessage ImprimirTiquete(string numeroTiquete)
-        {
-            HttpResponseMessage respuesta = new HttpResponseMessage();
-            RespuestaImpresion respuestaImpresion = new RespuestaImpresion();
-            try
-            {
-                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
-                if (headerValues == null)
-                {
-                    respuesta.StatusCode = HttpStatusCode.BadRequest;
-                    respuestaImpresion.Mensaje = "Sin token";
-                }
-                else
-                {
-                    string token = headerValues.FirstOrDefault();
-                    if (fachadaSeguridad.ValidarToken(token))
-                    {
-                        respuestaImpresion.Impresion = fachadaFactura.ImprimirTiquete(numeroTiquete);
-                        respuesta.StatusCode = HttpStatusCode.OK;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (ex.GetType().FullName.Contains("SqlException"))
-                {
-                    respuesta.StatusCode = HttpStatusCode.Forbidden;
-                }
-                else
-                {
-                    respuesta.StatusCode = HttpStatusCode.Unauthorized;
-                }
-                respuestaImpresion.Mensaje = ex.Message;
-            }
-            finally
-            {
-                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaImpresion));
             }
             return respuesta;
         }
@@ -391,6 +268,7 @@ namespace ViajarSoft.Controllers.Api.V1
                     {
                         respuestaLiquidacionTaquillero.Liquidacion = fachadaFactura.ObtenerLiquidacionTaquillero(solicitudLiquidacionTaquillero.CodigoOficina,solicitudLiquidacionTaquillero.CodigoTaquilla,
                             solicitudLiquidacionTaquillero.FechaVenta,solicitudLiquidacionTaquillero.CodigoUsuario);
+                        respuestaLiquidacionTaquillero.ReporteImpresionLiquidacion = fachadaFactura.ObtenerImpresionLiquidacion(solicitudLiquidacionTaquillero.CodigoOficina, respuestaLiquidacionTaquillero.Liquidacion.NumeroLiquidacion);
                         respuesta.StatusCode = HttpStatusCode.OK;
                     }
                 }
@@ -414,48 +292,6 @@ namespace ViajarSoft.Controllers.Api.V1
             return respuesta;
         }
 
-        [HttpPost]
-        public HttpResponseMessage ObtenerImpresionLiquidacion(SolicitudImpresionLiquidacion solicitudImpresionLiquidacion)
-        {
-            HttpResponseMessage respuesta = new HttpResponseMessage();
-            RespuestaImpresionLiquidacion respuestaImpresionLiquidacion = new RespuestaImpresionLiquidacion();
-            try
-            {
-                IEnumerable<string> headerValues = Request.Headers.GetValues(Aplicacion.ObtenerNombreValorToken());
-                if (headerValues == null)
-                {
-                    respuesta.StatusCode = HttpStatusCode.BadRequest;
-                    respuestaImpresionLiquidacion.Mensaje = "Sin token";
-                }
-                else
-                {
-                    string token = headerValues.FirstOrDefault();
-                    if (fachadaSeguridad.ValidarToken(token))
-                    {
-                        respuestaImpresionLiquidacion.ImpresionLiquidacion = fachadaFactura.ObtenerImpresionLiquidacion(solicitudImpresionLiquidacion.CodigoOficina,
-                            solicitudImpresionLiquidacion.CodigoFactura);
-                        respuesta.StatusCode = HttpStatusCode.OK;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (ex.GetType().FullName.Contains("SqlException") || ex.GetType().FullName.Contains("InvalidOperationException"))
-                {
-                    respuesta.StatusCode = HttpStatusCode.Forbidden;
-                }
-                else
-                {
-                    respuesta.StatusCode = HttpStatusCode.Unauthorized;
-                }
-                respuestaImpresionLiquidacion.Mensaje = ex.Message;
-            }
-            finally
-            {
-                respuesta.Content = new StringContent(JsonConvert.SerializeObject(respuestaImpresionLiquidacion));
-            }
-            return respuesta;
-        }
-
+       
     }
 }

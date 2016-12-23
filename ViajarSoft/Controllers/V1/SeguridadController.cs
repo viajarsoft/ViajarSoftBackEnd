@@ -17,15 +17,17 @@ namespace ViajarSoft.Controllers.Api.V1
     public class SeguridadController : ApiController
     {
         private IFachadaSeguridad fachadaSeguridad;
+        private IFachadaFactura fachadaFactura;
 
         public SeguridadController()
         {
 
         }
 
-        public SeguridadController(IFachadaSeguridad fachadaSeguridad)
+        public SeguridadController(IFachadaSeguridad fachadaSeguridad,IFachadaFactura fachadaFactura)
         {
             this.fachadaSeguridad = fachadaSeguridad;
+            this.fachadaFactura = fachadaFactura;
         }
 
         [HttpPost]

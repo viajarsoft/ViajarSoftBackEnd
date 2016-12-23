@@ -9,5 +9,6 @@ namespace Modelo.Factura
     public class RespuestaLiquidacionTaquillero : Respuesta
     {
         public LiquidacionGenerada Liquidacion { get; set; }
+        public ReporteImpresionLiquidacion ReporteImpresionLiquidacion { get; set; }
     }
 }

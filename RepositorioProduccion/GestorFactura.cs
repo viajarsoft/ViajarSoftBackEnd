@@ -174,7 +174,7 @@ namespace RepositorioProduccion
                         {
                             CodigoRespuesta = int.Parse(salidaOperacion.Rows[0]["Resultado"].ToString()),
                             NumeroTiquete = salidaOperacion.Rows[0]["NumeroTiquete"].ToString(),
-                            Mensaje = salidaOperacion.Rows[0]["NumeroTiquete"].ToString()
+                            Mensaje = salidaOperacion.Rows[0]["Mensaje"].ToString()
                         };
                     }
                 }

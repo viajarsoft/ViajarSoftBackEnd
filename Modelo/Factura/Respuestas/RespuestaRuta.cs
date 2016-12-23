@@ -9,5 +9,6 @@ namespace Modelo.Factura
     public class RespuestaRuta : Respuesta
     {
         public List<Ruta> Rutas { get; set; }
+        public List<TipoBus> TiposBus { get; set; }
     }
 }

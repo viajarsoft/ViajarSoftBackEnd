@@ -17,5 +17,6 @@ namespace Modelo.Seguridad
         // TENANT
         public string IdentificadorEmpresa { get; set; }
         public DateTime FechaVencimiento { get; set; }
+        public string NombreOficina { get; set; }
     }
 }

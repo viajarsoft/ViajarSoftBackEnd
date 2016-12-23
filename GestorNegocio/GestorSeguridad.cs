@@ -14,15 +14,18 @@ namespace GestorNegocio
     public class GestorSeguridad : NegocioGeneral, IGestorSeguridad
     {
         private IRepositorioSeguridad repositorioSeguridad;
+        private IRepositorioFactura repositorioFactura;
 
         public GestorSeguridad()
         {
             this.repositorioSeguridad = FabricarGestorSeguridad.Crear(Aplicacion.ObtenerAmbiente());
+            this.repositorioFactura = FabricaGestorFactura.Crear(Aplicacion.ObtenerAmbiente());
         }
 
-        public GestorSeguridad(IRepositorioSeguridad repositorioSeguridad)
+        public GestorSeguridad(IRepositorioSeguridad repositorioSeguridad,IRepositorioFactura repositorioFactura)
         {
             this.repositorioSeguridad = repositorioSeguridad;
+            this.repositorioFactura = repositorioFactura;
         }
 
         private RespuestaAtributosUsuario LeerAtributosUsuario(string usuario)
@@ -180,6 +183,7 @@ namespace GestorNegocio
                     salida.IdentificadorEmpresa = respuestaAtributosUsuario.IdentificadorEmpresa;
                     salida.FechaVencimiento = fechaVencimiento;
                     salida.Token = tokenNuevo;
+                    salida.NombreOficina = repositorioFactura.ObtenerOficinaVendedor(respuestaAtributosUsuario.CodigoOficina).Descripcion;
                 }
                 else
                 {
