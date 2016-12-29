@@ -106,6 +106,24 @@ namespace GestorConfiguracion {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a rutaArchivoResumenZPL.
+        /// </summary>
+        internal static string rutaArchivoResumenZPL {
+            get {
+                return ResourceManager.GetString("rutaArchivoResumenZPL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a rutaArchivoTiqueteZPL.
+        /// </summary>
+        internal static string rutaArchivoTiqueteZPL {
+            get {
+                return ResourceManager.GetString("rutaArchivoTiqueteZPL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a sistemaFactura.
         /// </summary>
         internal static string sistemaFactura {

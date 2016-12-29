@@ -10,6 +10,6 @@ namespace Modelo.Factura
     {
         public string CodigoTipoBus { get; set; }
         public string CodigoRuta { get; set; }
-        public string CodigoTipoPasaje { get; set; }
+        public string TipoTiquete { get; set; }
     }
 }

@@ -132,6 +132,12 @@
   <data name="repositorio" xml:space="preserve">
     <value>repositorio</value>
   </data>
+  <data name="rutaArchivoResumenZPL" xml:space="preserve">
+    <value>rutaArchivoResumenZPL</value>
+  </data>
+  <data name="rutaArchivoTiqueteZPL" xml:space="preserve">
+    <value>rutaArchivoTiqueteZPL</value>
+  </data>
   <data name="sistemaFactura" xml:space="preserve">
     <value>sistemaFactura</value>
   </data>

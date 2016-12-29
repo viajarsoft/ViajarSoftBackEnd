@@ -9,6 +9,6 @@ namespace Modelo.Factura
     public class RespuestaVentaTiquete : Respuesta
     {
         public VentaTiquete VentaTiquete { get; set; }
-        public ImpresionTiquete ImpresionTiquete { get; set; }
+        public string ZplTiquete { get; set; }
     }
 }

@@ -60,7 +60,7 @@ namespace ViajarSoft.Controllers.Api.V1
             {
                 if (ex.GetType().FullName.Contains("SqlException"))
                 {
-                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                    respuesta.StatusCode = HttpStatusCode.InternalServerError;
                 }
                 else
                 {
@@ -94,7 +94,7 @@ namespace ViajarSoft.Controllers.Api.V1
                     if (fachadaSeguridad.ValidarToken(token))
                     {
                         respuestaPrecioDestino.PreciosDestino = fachadaFactura.ObtenerPreciosDestino(solicitudPrecioDestino.CodigoTipoBus,
-                            solicitudPrecioDestino.CodigoRuta, solicitudPrecioDestino.CodigoTipoPasaje);
+                            solicitudPrecioDestino.CodigoRuta, solicitudPrecioDestino.TipoTiquete);
                         respuesta.StatusCode = HttpStatusCode.OK;
                     }
                 }
@@ -103,7 +103,7 @@ namespace ViajarSoft.Controllers.Api.V1
             {
                 if (ex.GetType().FullName.Contains("SqlException"))
                 {
-                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                    respuesta.StatusCode = HttpStatusCode.InternalServerError;
                 }
                 else
                 {
@@ -146,7 +146,7 @@ namespace ViajarSoft.Controllers.Api.V1
             {
                 if (ex.GetType().FullName.Contains("SqlException"))
                 {
-                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                    respuesta.StatusCode = HttpStatusCode.InternalServerError;
                 }
                 else
                 {
@@ -182,16 +182,17 @@ namespace ViajarSoft.Controllers.Api.V1
                         respuestaVentaTiquete.VentaTiquete = fachadaFactura.VentaTiquete(solicitudVentaTiquete.CodigoRuta,solicitudVentaTiquete.CodigoTaquilla,
                             solicitudVentaTiquete.ValorTiquete,solicitudVentaTiquete.TipoTiquete,solicitudVentaTiquete.ValorSeguro,
                             solicitudVentaTiquete.CodigoTipoBus,solicitudVentaTiquete.CodigoOficina);
-                        respuestaVentaTiquete.ImpresionTiquete = fachadaFactura.ImprimirTiquete(respuestaVentaTiquete.VentaTiquete.NumeroTiquete);
+                        respuestaVentaTiquete.ZplTiquete = fachadaFactura.ObtenerImpresionTiquete(respuestaVentaTiquete.VentaTiquete.NumeroTiquete);
                         respuesta.StatusCode = HttpStatusCode.OK;
                     }
                 }
             }
             catch (Exception ex)
             {
-                if (ex.GetType().FullName.Contains("SqlException"))
+
+                if (ex.GetType().FullName.Contains("SqlException") || ex.GetType().FullName.Contains("DirectoryNotFoundException"))
                 {
-                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                    respuesta.StatusCode = HttpStatusCode.InternalServerError;
                 }
                 else
                 {
@@ -233,7 +234,7 @@ namespace ViajarSoft.Controllers.Api.V1
             {
                 if (ex.GetType().FullName.Contains("SqlException"))
                 {
-                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                    respuesta.StatusCode = HttpStatusCode.InternalServerError;
                 }
                 else
                 {
@@ -277,7 +278,7 @@ namespace ViajarSoft.Controllers.Api.V1
             {
                 if (ex.GetType().FullName.Contains("SqlException"))
                 {
-                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                    respuesta.StatusCode = HttpStatusCode.InternalServerError;
                 }
                 else
                 {

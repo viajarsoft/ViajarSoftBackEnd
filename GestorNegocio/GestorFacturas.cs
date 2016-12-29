@@ -9,6 +9,7 @@ using GestorConfiguracion;
 using InterfasesNegocio;
 using Modelo.Seguridad;
 using Modelo.Factura;
+using Utilidades;
 
 namespace GestorNegocio
 {
@@ -57,9 +58,29 @@ namespace GestorNegocio
             return repositorioFactura.VentaTiquete(codigoRuta, codigoVendedor, valorTiquete, tipoTiquete, valorSeguro, tipoBus, codigoOficina);
         }
 
-        public ImpresionTiquete ImprimirTiquete(string numeroTiquete)
+        public string ObtenerImpresionTiquete(string numeroTiquete)
         {
-            return repositorioFactura.ImprimirTiquete(numeroTiquete);
+            string salida = string.Empty;
+            ImpresionTiquete tiqueteParaImprimir = repositorioFactura.ImprimirTiquete(numeroTiquete);
+            string zplTiquete = Util.LeerArchivoZPL(Aplicacion.ObtenerRutaZPLTiquete());
+            salida = string.Format
+                (zplTiquete,
+                tiqueteParaImprimir.RazonSocial,
+                 tiqueteParaImprimir.Nit,
+                 tiqueteParaImprimir.Telefono,
+                 tiqueteParaImprimir.RutaTerminal,
+                 tiqueteParaImprimir.TipoVH,
+                 tiqueteParaImprimir.NumeroBus,
+                 tiqueteParaImprimir.FechaSalida,
+                 tiqueteParaImprimir.ValorUsuario,
+                 tiqueteParaImprimir.ValorSeguro,
+                 tiqueteParaImprimir.Valor,
+                 tiqueteParaImprimir.Tiquete,
+                 tiqueteParaImprimir.Vendedor,
+                 tiqueteParaImprimir.FechaVenta,
+                 tiqueteParaImprimir.Origen
+                );
+            return salida;
         }
 
         public VentaPorLiquidar ObtenerResumenVentasPorLiquidar(string codigoOficina, string codigoTaquilla)

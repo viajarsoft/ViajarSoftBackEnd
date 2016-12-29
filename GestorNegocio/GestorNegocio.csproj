@@ -66,6 +66,10 @@
       <Project>{1c6c368d-6df6-486a-9a7d-f6fe296f64e2}</Project>
       <Name>Repositorio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utilidades\Utilidades.csproj">
+      <Project>{fbb213dd-32d8-4cea-9a7d-77bbed84a5db}</Project>
+      <Name>Utilidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

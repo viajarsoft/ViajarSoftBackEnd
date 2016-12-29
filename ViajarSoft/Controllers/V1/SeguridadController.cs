@@ -44,7 +44,7 @@ namespace ViajarSoft.Controllers.Api.V1
             {
                 if (ex.GetType().FullName.Contains("SqlException"))
                 {
-                    respuesta.StatusCode = HttpStatusCode.Forbidden;
+                    respuesta.StatusCode = HttpStatusCode.InternalServerError;
                 }
                 else
                 {

@@ -1,0 +1,48 @@
+﻿^XA
+^FX Encabezado, sin logo
+^CF0,60^FO80,20^FD{0}^FS
+^CF0,20^FO180,80^FDNit : {1}  Telefóno:{2}^FS
+^FO200,120^FDPag web www.trasunidossa.com^FS
+^CFD,50
+^FO130,170^FDTIQUETE DE VIAJE^FS
+^FO50,220^GB700,1,3^FS
+^FX Datos Viaje.
+^CFF,30
+^FO50,240^FDTramo : {3}^FS
+^CF1,50
+^FO80,320,2^FD{4}^FS
+^CF0,70
+^FO440,325^FDNro: {5}^FS
+^CF0,60
+^FO50,420^FDFecha Salida:^FS
+^CFA,40
+^FO304,424^FD{6}^FS
+^FO50,465^GB700,1,3^FS
+^FX Datos de la Venta
+^CFE,30
+^FO300,500^FDPasaje: ^FS
+^FO740,500,1^FD{7}^FS
+^FO300,540^FDSeguro: ^FS
+^FO740,540,1^FD{8}^FS
+^CFB,30
+^FO500,620,1^FDValor Total: ^FS
+^FO740,620,1^FD{9}^FS
+^CFD,100
+^FO120,680^FD{10}^FS
+^CFF,30
+^FO50,800^FD   Vendedor: {11}^FS
+^FO50,840^FDFecha Venta: {12}^FS
+^FO50,880^GB700,220,3^FS
+^CF0,30
+^FO70,890^FDViaja usted viaja su seguro^FS
+^FO70,920^FDSeñor pasajero:^FS 
+^FO70,950^FD1. Debe abordar el vehículo 15 min antes de la hora de salida^FS 
+^FO70,980^FD2. Tiene derecho hasta 25 kilos en equipaje de mano, en caso de pérdida^FS
+^FO70,1010^FDcomprobada, la empresa responderá hasta por $10.000 por maleta.^FS 
+^FO70,1040^FD3. No se responde por pérdida o averías en caso fortuito o fuerza mayor.^FS 
+^FO70,1070^FD4. Encaso de no utilizar el tiquete no se devuelve el dinero^FS
+^CFB,20
+^FO260,1120^FDPASO TORNIQUETE^FS
+^CFD,50
+^FO160,1160^FD{13}^FS
+^XZ

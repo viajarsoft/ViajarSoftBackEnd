@@ -59,5 +59,15 @@ namespace GestorConfiguracion
             return ConfigurationManager.AppSettings[AppSettings.valorToken];
         }
 
+        public static string ObtenerRutaZPLTiquete()
+        {
+            return ConfigurationManager.AppSettings[AppSettings.rutaArchivoTiqueteZPL];
+        }
+
+        public static string ObtenerRutaZPLResumen()
+        {
+            return ConfigurationManager.AppSettings[AppSettings.rutaArchivoResumenZPL];
+        }
+
     }
 }
