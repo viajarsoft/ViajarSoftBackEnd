@@ -19,7 +19,7 @@ namespace InterfasesFachada
         string ObtenerImpresionTiquete(string numeroTiquete);
         VentaPorLiquidar ObtenerResumenVentasPorLiquidar(string codigoOficina, string codigoTaquilla);
         LiquidacionGenerada ObtenerLiquidacionTaquillero(string codigoOficina, string codigoTaquilla, DateTime fechaVenta, string codigoUsuario);
-        ReporteImpresionLiquidacion ObtenerImpresionLiquidacion(string codigoOficina, string numeroLiquidacion);
+        string ObtenerImpresionLiquidacion(string codigoOficina, string numeroLiquidacion);
 
     }
 }

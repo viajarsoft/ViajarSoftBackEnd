@@ -68,7 +68,7 @@ namespace Fachada
             return gestorFactura.ObtenerLiquidacionTaquillero(codigoOficina, codigoTaquilla, fechaVenta, codigoUsuario);
         }
 
-        public Modelo.Factura.ReporteImpresionLiquidacion ObtenerImpresionLiquidacion(string codigoOficina, string numeroLiquidacion)
+        public string ObtenerImpresionLiquidacion(string codigoOficina, string numeroLiquidacion)
         {
             return gestorFactura.ObtenerImpresionLiquidacion(codigoOficina, numeroLiquidacion);
         }

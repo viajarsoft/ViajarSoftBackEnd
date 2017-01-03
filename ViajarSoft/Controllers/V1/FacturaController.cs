@@ -269,7 +269,7 @@ namespace ViajarSoft.Controllers.Api.V1
                     {
                         respuestaLiquidacionTaquillero.Liquidacion = fachadaFactura.ObtenerLiquidacionTaquillero(solicitudLiquidacionTaquillero.CodigoOficina,solicitudLiquidacionTaquillero.CodigoTaquilla,
                             solicitudLiquidacionTaquillero.FechaVenta,solicitudLiquidacionTaquillero.CodigoUsuario);
-                        respuestaLiquidacionTaquillero.ReporteImpresionLiquidacion = fachadaFactura.ObtenerImpresionLiquidacion(solicitudLiquidacionTaquillero.CodigoOficina, respuestaLiquidacionTaquillero.Liquidacion.NumeroLiquidacion);
+                        respuestaLiquidacionTaquillero.ZplResumen = fachadaFactura.ObtenerImpresionLiquidacion(solicitudLiquidacionTaquillero.CodigoOficina, respuestaLiquidacionTaquillero.Liquidacion.NumeroLiquidacion);
                         respuesta.StatusCode = HttpStatusCode.OK;
                     }
                 }
