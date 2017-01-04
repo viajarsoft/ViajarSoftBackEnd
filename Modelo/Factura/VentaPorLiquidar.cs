@@ -15,5 +15,6 @@ namespace Modelo.Factura
         public int Cantidad { get; set; }
         public decimal ValorTiquete { get; set; }
         public decimal ValorSeguro { get; set; }
+        public string NombreTaquilla { get; set; }
     }
 }

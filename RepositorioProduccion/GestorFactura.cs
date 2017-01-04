@@ -253,7 +253,8 @@ namespace RepositorioProduccion
                             FechaVenta = DateTime.Parse(registro["FecVenta"].ToString()),
                             Cantidad = int.Parse(registro["Cant"].ToString()),
                             ValorTiquete = decimal.Parse(registro["ValTique"].ToString()),
-                            ValorSeguro = decimal.Parse(registro["ValSeguro"].ToString())
+                            ValorSeguro = decimal.Parse(registro["ValSeguro"].ToString()),
+                            NombreTaquilla = registro["A008_NOMTAQUI"].ToString()
                         };
                     }
                 }
