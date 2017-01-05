@@ -93,6 +93,13 @@ namespace GestorNegocio
             return repositorioFactura.ObtenerLiquidacionTaquillero(codigoOficina, codigoTaquilla, fechaVenta, codigoUsuario);
         }
 
+        private string ReporteImpresionLiquidacionToZpl(ReporteImpresionLiquidacion reporteImpresionLiquidacion)
+        {
+            string salida = "";
+
+            return salida;
+        }
+
         public string ObtenerImpresionLiquidacion(string codigoOficina, string numeroLiquidacion)
         {
             ReporteImpresionLiquidacion salida = null;
@@ -131,7 +138,7 @@ namespace GestorNegocio
             {
                 throw new InvalidOperationException("Sin datos en la impresión de la liquidación");
             }
-            return "Salida ZPL Impresora";
+            return ReporteImpresionLiquidacionToZpl(salida);
         }
     }
 }
