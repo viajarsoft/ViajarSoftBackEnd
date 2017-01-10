@@ -44,13 +44,13 @@ namespace GestorNegocio
 
         public List<PrecioDestino> ObtenerPreciosDestino(string codigoTipoBus, string codigoRuta, string codigoTipoPasaje)
         {
-            return repositorioFactura.ObtenerPreciosDestino(codigoTipoBus,codigoRuta,codigoTipoPasaje);
+            return repositorioFactura.ObtenerPreciosDestino(codigoTipoBus, codigoRuta, codigoTipoPasaje);
         }
 
 
         public List<TipoTiquete> ObtenerTiposTiquete(string codigoTipoBus, string codigoRuta)
         {
-            return repositorioFactura.ObtenerTiposTiquete(codigoTipoBus,codigoRuta);
+            return repositorioFactura.ObtenerTiposTiquete(codigoTipoBus, codigoRuta);
         }
 
         public VentaTiquete VentaTiquete(string codigoRuta, string codigoVendedor, decimal valorTiquete, string tipoTiquete, decimal valorSeguro, string tipoBus, string codigoOficina)
@@ -93,13 +93,7 @@ namespace GestorNegocio
             return repositorioFactura.ObtenerLiquidacionTaquillero(codigoOficina, codigoTaquilla, fechaVenta, codigoUsuario);
         }
 
-        private string ReporteImpresionLiquidacionToZpl(ReporteImpresionLiquidacion reporteImpresionLiquidacion)
-        {
-            string salida = "";
-
-            return salida;
-        }
-
+        
         public string ObtenerImpresionLiquidacion(string codigoOficina, string numeroLiquidacion)
         {
             ReporteImpresionLiquidacion salida = null;
@@ -113,32 +107,40 @@ namespace GestorNegocio
                 salida.NombreVendedor = registro.CodigoVendedor;
                 salida.FechaIngreso = registro.FechaIngreso;
                 salida.FechaLiquidacion = registro.FechaLiquidacion;
+                salida.NumeroLiquidacion = registro.NumeroLiquidacion;
+                salida.ValorTotal = 0;
+                salida.ValorTotalSeguro = 0;
+                salida.ValorTotalTiquete = 0;
+                salida.Cantidad = 0;
                 foreach (ImpresionLiquidacion itemImpresionLiquidacion in impresionLiquidacion)
                 {
-                    salida.Detalle.Add
-                    (
-                        new DetalleImpresionLiquidacion()
-                        {
-                            CantidadTiquetes = itemImpresionLiquidacion.Cantidad,
-                            NombreTipoBus = itemImpresionLiquidacion.CodigoTipoBus,
-                            NombreTipoTiquete = itemImpresionLiquidacion.CodigoTipoTiquete,
-                            TipoVenta = itemImpresionLiquidacion.TipoVenta,
-                            ValorSeguro = itemImpresionLiquidacion.ValorSeguro,
-                            ValorTiquete = itemImpresionLiquidacion.ValorTiquete,
-                            ValorSeguroTotal = itemImpresionLiquidacion.ValorSeguro * itemImpresionLiquidacion.Cantidad,
-                            ValorTotal = itemImpresionLiquidacion.ValorTiquete * itemImpresionLiquidacion.Cantidad,
-                            Total = (itemImpresionLiquidacion.ValorSeguro * itemImpresionLiquidacion.Cantidad) + 
-                                (itemImpresionLiquidacion.ValorTiquete * itemImpresionLiquidacion.Cantidad)
-                            
-                        }
-                    );   
+                    DetalleImpresionLiquidacion detalle = new DetalleImpresionLiquidacion()
+                    {
+                        CantidadTiquetes = itemImpresionLiquidacion.Cantidad,
+                        NombreTipoBus = itemImpresionLiquidacion.CodigoTipoBus,
+                        NombreTipoTiquete = itemImpresionLiquidacion.CodigoTipoTiquete,
+                        TipoVenta = itemImpresionLiquidacion.TipoVenta,
+                        ValorSeguro = itemImpresionLiquidacion.ValorSeguro,
+                        ValorTiquete = itemImpresionLiquidacion.ValorTiquete,
+                        ValorSeguroTotal = itemImpresionLiquidacion.ValorSeguro * itemImpresionLiquidacion.Cantidad,
+                        ValorTotal = itemImpresionLiquidacion.ValorTiquete * itemImpresionLiquidacion.Cantidad,
+                        Total = (itemImpresionLiquidacion.ValorSeguro * itemImpresionLiquidacion.Cantidad) +
+                            (itemImpresionLiquidacion.ValorTiquete * itemImpresionLiquidacion.Cantidad)
+
+                    };
+
+                    salida.Detalle.Add(detalle);
+                    salida.ValorTotal += detalle.ValorTotal;
+                    salida.ValorTotalSeguro += detalle.ValorSeguro;
+                    salida.ValorTotalTiquete += detalle.ValorTiquete;
+                    salida.Cantidad += detalle.CantidadTiquetes;
                 }
             }
             else
             {
                 throw new InvalidOperationException("Sin datos en la impresión de la liquidación");
             }
-            return ReporteImpresionLiquidacionToZpl(salida);
+            return new ReporteadorResumen().ReporteImpresionLiquidacionToZpl(Util.LeerArchivoZPL(Aplicacion.ObtenerRutaZPLResumen()), salida);
         }
     }
 }

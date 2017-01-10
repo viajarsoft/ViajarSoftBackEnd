@@ -44,6 +44,12 @@
     <Compile Include="NegocioGeneral.cs" />
     <Compile Include="GestorFacturas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteadorResumen.cs" />
+    <Compile Include="TagsResumenLiquidacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TagsResumenLiquidacion.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GestorConfiguracion\GestorConfiguracion.csproj">
@@ -70,6 +76,12 @@
       <Project>{fbb213dd-32d8-4cea-9a7d-77bbed84a5db}</Project>
       <Name>Utilidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TagsResumenLiquidacion.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TagsResumenLiquidacion.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
