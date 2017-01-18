@@ -92,7 +92,7 @@ namespace GestorNegocio
             detalleReporte = resultado.Substring(
                 resultado.IndexOf(TagsResumenLiquidacion.detalle) + TagsResumenLiquidacion.detalle.Length + 1,
                 (resultado.IndexOf(TagsResumenLiquidacion.sumario) - resultado.IndexOf(TagsResumenLiquidacion.detalle)) - TagsResumenLiquidacion.sumario.Length);
-            string[] lineasReporte = detalleReporte.Split('\n');
+            string[] lineasReporte = detalleReporte.Split('\r');
             // semilla grupo
             string xyGrupo = ObtenerCadenaEntreCadenas(lineasReporte[2], TagsResumenLiquidacion.FO, TagsResumenLiquidacion.FD);
             Tuple<int, int> xY = ObtenerXY(xyGrupo);

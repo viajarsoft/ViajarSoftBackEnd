@@ -58,6 +58,22 @@ namespace GestorNegocio
             return repositorioFactura.VentaTiquete(codigoRuta, codigoVendedor, valorTiquete, tipoTiquete, valorSeguro, tipoBus, codigoOficina);
         }
 
+        private string ObtenerGS128(string tiquete, DateTime fechaVenta, decimal precio)
+        {
+            string salida = string.Empty;
+            string tiqueteMod = string.Format("{0:0.##}", decimal.Parse(tiquete));
+            salida = string.Format("01074089{0}{1}{2}{3}{4:00000.##}", tiqueteMod.Substring(1, 2), tiqueteMod.Substring(3, 7),
+                fechaVenta.Year + 1, tiqueteMod.Substring(0, 1), precio);
+            return salida;
+        }
+
+        private string ObtenerCode39(string tiquete)
+        {
+            string salida = string.Empty;
+            salida = string.Format("{0:0.##}", decimal.Parse(tiquete));
+            return salida;
+        }
+
         public string ObtenerImpresionTiquete(string numeroTiquete)
         {
             string salida = string.Empty;
@@ -68,17 +84,17 @@ namespace GestorNegocio
                 tiqueteParaImprimir.RazonSocial,
                  tiqueteParaImprimir.Nit,
                  tiqueteParaImprimir.Telefono,
-                 tiqueteParaImprimir.RutaTerminal,
+                 string.Format("{0}-{1}", tiqueteParaImprimir.Origen, tiqueteParaImprimir.Destino),
                  tiqueteParaImprimir.TipoVH,
                  tiqueteParaImprimir.NumeroBus,
                  tiqueteParaImprimir.FechaSalida,
                  tiqueteParaImprimir.ValorUsuario,
                  tiqueteParaImprimir.ValorSeguro,
                  tiqueteParaImprimir.Valor,
-                 tiqueteParaImprimir.Tiquete,
+                 ObtenerCode39(tiqueteParaImprimir.Tiquete),
                  tiqueteParaImprimir.Vendedor,
                  tiqueteParaImprimir.FechaVenta,
-                 tiqueteParaImprimir.Origen
+                 ObtenerGS128(tiqueteParaImprimir.Tiquete,tiqueteParaImprimir.FechaVenta,tiqueteParaImprimir.Valor)
                 );
             return salida;
         }
@@ -93,7 +109,7 @@ namespace GestorNegocio
             return repositorioFactura.ObtenerLiquidacionTaquillero(codigoOficina, codigoTaquilla, fechaVenta, codigoUsuario);
         }
 
-        
+
         public string ObtenerImpresionLiquidacion(string codigoOficina, string numeroLiquidacion)
         {
             ReporteImpresionLiquidacion salida = null;

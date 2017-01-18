@@ -202,10 +202,10 @@ namespace RepositorioProduccion
                             Origen = registro["origen"].ToString(),
                             Destino = registro["destino"].ToString(),
                             Tiquete = registro["TIQUETE"].ToString(),
-                            Valor = registro["VALOR"].ToString(),
-                            ValorSeguro = registro["A050_VALORSEGURO"].ToString(),
+                            Valor = registro.Field<decimal>("VALOR"),
+                            ValorSeguro = registro.Field<decimal>("A050_VALORSEGURO"),
                             Vendedor = registro["VENDEDOR"].ToString(),
-                            FechaVenta = registro["FECHA_VENTA"].ToString(),
+                            FechaVenta = registro.Field<DateTime>("FECHA_VENTA"),
                             TipoVH = registro["TIPO_VH"].ToString(),
                             NumeroBus = registro["NRO_BUS"].ToString(),
                             FechaSalida = registro["FECHA_SALIDA"].ToString(),
@@ -322,21 +322,24 @@ namespace RepositorioProduccion
                         salida = new List<ImpresionLiquidacion>();
                         foreach (DataRow itemOperacion in salidaOperacion.Rows)
                         {
-                            salida.Add(new ImpresionLiquidacion()
+                            ImpresionLiquidacion nuevaImpresionLiquidacion = new ImpresionLiquidacion();
+
+                            nuevaImpresionLiquidacion.CodigoVendedor = itemOperacion["vendedor"].ToString();
+                            nuevaImpresionLiquidacion.ValorTiquete = decimal.Parse(itemOperacion["A050_VALTIQUE"].ToString());
+                            nuevaImpresionLiquidacion.Cantidad = int.Parse(itemOperacion["cantidad"].ToString());
+                            nuevaImpresionLiquidacion.NumeroLiquidacion = itemOperacion["nroliqui"].ToString();
+                            nuevaImpresionLiquidacion.CodigoTipoTiquete = itemOperacion["A050_TIPOTIQUE"].ToString();
+                            nuevaImpresionLiquidacion.ValorSeguro = decimal.Parse(itemOperacion["valorseg"].ToString());
+                            nuevaImpresionLiquidacion.CodigoTipoBus = itemOperacion["A050_TIPOBUS"].ToString();
+                            nuevaImpresionLiquidacion.CodigoOficina = itemOperacion["codoficina"].ToString();
+                            nuevaImpresionLiquidacion.FechaLiquidacion = DateTime.Parse(itemOperacion["fecliqui"].ToString());
+                            nuevaImpresionLiquidacion.CodigoTaquilla = itemOperacion["codtaqui"].ToString();
+                            nuevaImpresionLiquidacion.TipoVenta = itemOperacion["tipoVenta"].ToString();
+                            if (!itemOperacion.IsNull("FechaIngreso"))
                             {
-                                CodigoVendedor = itemOperacion["vendedor"].ToString(),
-                                ValorTiquete = decimal.Parse(itemOperacion["A050_VALTIQUE"].ToString()),
-                                Cantidad = int.Parse(itemOperacion["cantidad"].ToString()),
-                                NumeroLiquidacion = itemOperacion["nroliqui"].ToString(),
-                                CodigoTipoTiquete = itemOperacion["A050_TIPOTIQUE"].ToString(),
-                                ValorSeguro = decimal.Parse(itemOperacion["valorseg"].ToString()),
-                                CodigoTipoBus = itemOperacion["A050_TIPOBUS"].ToString(),
-                                CodigoOficina = itemOperacion["codoficina"].ToString(),
-                                FechaLiquidacion = DateTime.Parse(itemOperacion["fecliqui"].ToString()),
-                                CodigoTaquilla = itemOperacion["codtaqui"].ToString(),
-                                TipoVenta = itemOperacion["tipoVenta"].ToString(),
-                                FechaIngreso = DateTime.Parse(itemOperacion["FechaIngreso"].ToString())
-                            });
+                                nuevaImpresionLiquidacion.FechaIngreso = DateTime.Parse(itemOperacion["FechaIngreso"].ToString());
+                            }
+                            salida.Add(nuevaImpresionLiquidacion);
                         }
                     }
                 }
