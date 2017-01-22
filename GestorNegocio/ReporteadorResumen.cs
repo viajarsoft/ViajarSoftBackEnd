@@ -36,25 +36,25 @@ namespace GestorNegocio
         private string CrearDetalle(int y, DetalleImpresionLiquidacion detalle)
         {
             StringBuilder salida = new StringBuilder();
-            salida.AppendLine("^FO140,{0},1^FD${1}^FS");
-            salida.AppendLine("^FO300,{0},1^FD${2}^FS");
-            salida.AppendLine("^FO460,{0},1^FD{3}^FS");
-            salida.AppendLine("^FO700,{0},1^FD${4}^FS");
+            salida.AppendLine("^FO100,{0},1^FD${1}^FS");
+            salida.AppendLine("^FO250,{0},1^FD${2}^FS");
+            salida.AppendLine("^FO400,{0},1^FD{3}^FS");
+            salida.AppendLine("^FO550,{0},1^FD${4}^FS");
             return string.Format(salida.ToString(), y, detalle.ValorTiquete, detalle.ValorSeguro, detalle.CantidadTiquetes, detalle.ValorTotal);
         }
 
         private string CrearLinea(int y)
         {
-            return string.Format("^FO50,{0}^GB700,1,3^FS", y);
+            return string.Format("^FO10,{0}^GB560,1,3^FS", y);
         }
 
         private string CrearSumario(int y, ReporteImpresionLiquidacion reporteSumario)
         {
             StringBuilder salida = new StringBuilder();
-            salida.AppendLine("^FO140,{0},1^FD${1}^FS");
-            salida.AppendLine("^FO300,{0},1^FD${2}^FS");
-            salida.AppendLine("^FO460,{0},1^FD{3}^FS");
-            salida.AppendLine("^FO700,{0},1^FD${4}^FS");
+            salida.AppendLine("^FO100,{0},1^FD${1}^FS");
+            salida.AppendLine("^FO250,{0},1^FD${2}^FS");
+            salida.AppendLine("^FO400,{0},1^FD{3}^FS");
+            salida.AppendLine("^FO550,{0},1^FD${4}^FS");
             return string.Format(salida.ToString(), y,
                 reporteSumario.ValorTotalTiquete,
                 reporteSumario.ValorTotalSeguro,
@@ -65,9 +65,9 @@ namespace GestorNegocio
         private string CrearFirma(int y)
         {
             StringBuilder salida = new StringBuilder();
-            salida.AppendLine("^FO40,{0}^FDFirma Vendedor ^FS");
+            salida.AppendLine("^FO10,{0}^FDFirma Vendedor ^FS");
             int yLinea = y + 30;
-            salida.AppendLine("^FO260,{1}^GB490,1,3^FS");
+            salida.AppendLine("^FO120,{1}^GB390,1,3^FS");
             return string.Format(salida.ToString(), y, yLinea);
         }
 
@@ -96,7 +96,7 @@ namespace GestorNegocio
             // semilla grupo
             string xyGrupo = ObtenerCadenaEntreCadenas(lineasReporte[2], TagsResumenLiquidacion.FO, TagsResumenLiquidacion.FD);
             Tuple<int, int> xY = ObtenerXY(xyGrupo);
-            int dy = 60;
+            int dy = 40;
             int xGrupo = xY.Item1;
             int yGrupo = xY.Item2;
             var grupos = from detalle in reporteImpresionLiquidacion.Detalle
@@ -115,7 +115,6 @@ namespace GestorNegocio
                 }
                 yGrupo += dy;
             }
-            yGrupo += dy;
             salida.AppendLine(CrearLinea(yGrupo));
             yGrupo += dy;
             salida.AppendLine(CrearSumario(yGrupo, reporteImpresionLiquidacion));
