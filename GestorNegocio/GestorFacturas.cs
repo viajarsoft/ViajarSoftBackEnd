@@ -94,7 +94,7 @@ namespace GestorNegocio
                  ObtenerCode39(tiqueteParaImprimir.Tiquete),
                  tiqueteParaImprimir.Vendedor,
                  tiqueteParaImprimir.FechaVenta,
-                 ObtenerGS128(tiqueteParaImprimir.Tiquete,tiqueteParaImprimir.FechaVenta,tiqueteParaImprimir.Valor)
+                 ObtenerGS128(tiqueteParaImprimir.Tiquete, tiqueteParaImprimir.FechaVenta, tiqueteParaImprimir.Valor)
                 );
             return salida;
         }
@@ -106,7 +106,16 @@ namespace GestorNegocio
 
         public LiquidacionGenerada ObtenerLiquidacionTaquillero(string codigoOficina, string codigoTaquilla, DateTime fechaVenta, string codigoUsuario)
         {
-            return repositorioFactura.ObtenerLiquidacionTaquillero(codigoOficina, codigoTaquilla, fechaVenta, codigoUsuario);
+            VentaPorLiquidar ventaPorLiquidar = repositorioFactura.ObtenerResumenVentasPorLiquidar(codigoOficina, codigoTaquilla);
+            LiquidacionGenerada liquidacionGenerada = null;
+            if (ventaPorLiquidar != null)
+            {
+                if (ventaPorLiquidar.Cantidad > 0)
+                {
+                    liquidacionGenerada = repositorioFactura.ObtenerLiquidacionTaquillero(codigoOficina, codigoTaquilla, fechaVenta, codigoUsuario);
+                }
+            }
+            return liquidacionGenerada;
         }
 
 

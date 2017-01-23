@@ -225,8 +225,17 @@ namespace ViajarSoft.Controllers.Api.V1
                     string token = headerValues.FirstOrDefault();
                     if (fachadaSeguridad.ValidarToken(token))
                     {
-                        respuestaVentasPorLiquidar.VentaPorLiquidar = fachadaFactura.ObtenerResumenVentasPorLiquidar(solicitudVentasPorLiquidar.CodigoOficina,solicitudVentasPorLiquidar.CodigoTaquilla);
-                        respuesta.StatusCode = HttpStatusCode.OK;
+                        VentaPorLiquidar ventaPorLiquidar = fachadaFactura.ObtenerResumenVentasPorLiquidar(solicitudVentasPorLiquidar.CodigoOficina, solicitudVentasPorLiquidar.CodigoTaquilla);
+                        respuestaVentasPorLiquidar.VentaPorLiquidar = ventaPorLiquidar;
+                        if (ventaPorLiquidar != null)
+                        {
+                            respuesta.StatusCode = HttpStatusCode.OK;
+                        }
+                        else
+                        {
+                            respuestaVentasPorLiquidar.Mensaje = "Las ventas de los tiquetes ya se liquidaron o no hay.";
+                            respuesta.StatusCode = HttpStatusCode.NotFound;
+                        }
                     }
                 }
             }
@@ -267,10 +276,19 @@ namespace ViajarSoft.Controllers.Api.V1
                     string token = headerValues.FirstOrDefault();
                     if (fachadaSeguridad.ValidarToken(token))
                     {
-                        respuestaLiquidacionTaquillero.Liquidacion = fachadaFactura.ObtenerLiquidacionTaquillero(solicitudLiquidacionTaquillero.CodigoOficina,solicitudLiquidacionTaquillero.CodigoTaquilla,
-                            solicitudLiquidacionTaquillero.FechaVenta,solicitudLiquidacionTaquillero.CodigoUsuario);
-                        respuestaLiquidacionTaquillero.ZplResumen = fachadaFactura.ObtenerImpresionLiquidacion(solicitudLiquidacionTaquillero.CodigoOficina, respuestaLiquidacionTaquillero.Liquidacion.NumeroLiquidacion);
-                        respuesta.StatusCode = HttpStatusCode.OK;
+                        LiquidacionGenerada liquidacionGenerada = fachadaFactura.ObtenerLiquidacionTaquillero(solicitudLiquidacionTaquillero.CodigoOficina, solicitudLiquidacionTaquillero.CodigoTaquilla,
+                            solicitudLiquidacionTaquillero.FechaVenta, solicitudLiquidacionTaquillero.CodigoUsuario);
+                        if (liquidacionGenerada != null)
+                        {
+                            respuestaLiquidacionTaquillero.Liquidacion = liquidacionGenerada;
+                            respuestaLiquidacionTaquillero.ZplResumen = fachadaFactura.ObtenerImpresionLiquidacion(solicitudLiquidacionTaquillero.CodigoOficina, respuestaLiquidacionTaquillero.Liquidacion.NumeroLiquidacion);
+                            respuesta.StatusCode = HttpStatusCode.OK;
+                        }
+                        else
+                        {
+                            respuestaLiquidacionTaquillero.Mensaje = "Las ventas de los tiquetes ya se liquidaron o no hay.";
+                            respuesta.StatusCode = HttpStatusCode.NotFound;
+                        }
                     }
                 }
             }

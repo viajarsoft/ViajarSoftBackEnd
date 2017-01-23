@@ -134,12 +134,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App_Data\ZPLTiquete.txt">
+    <Content Include="App_Data\ZPLTiquete.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_Data\ZPLResumen.txt">
+    </Content>
+    <Content Include="App_Data\ZPLResumen.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
