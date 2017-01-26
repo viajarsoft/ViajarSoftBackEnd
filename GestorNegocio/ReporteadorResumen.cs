@@ -40,7 +40,7 @@ namespace GestorNegocio
             salida.AppendLine("^FO250,{0},1^FD${2}^FS");
             salida.AppendLine("^FO400,{0},1^FD{3}^FS");
             salida.AppendLine("^FO550,{0},1^FD${4}^FS");
-            return string.Format(salida.ToString(), y, detalle.ValorTiquete, detalle.ValorSeguro, detalle.CantidadTiquetes, detalle.ValorTotal);
+            return string.Format(salida.ToString(), y, detalle.ValorTiquete, detalle.ValorSeguro, detalle.CantidadTiquetes, detalle.Total);
         }
 
         private string CrearLinea(int y)

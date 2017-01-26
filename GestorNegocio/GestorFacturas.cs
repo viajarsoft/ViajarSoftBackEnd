@@ -88,9 +88,9 @@ namespace GestorNegocio
                  tiqueteParaImprimir.TipoVH,
                  tiqueteParaImprimir.NumeroBus,
                  tiqueteParaImprimir.FechaSalida,
-                 tiqueteParaImprimir.ValorUsuario,
-                 tiqueteParaImprimir.ValorSeguro,
                  tiqueteParaImprimir.Valor,
+                 tiqueteParaImprimir.ValorSeguro,
+                 tiqueteParaImprimir.Valor + tiqueteParaImprimir.ValorSeguro,
                  ObtenerCode39(tiqueteParaImprimir.Tiquete),
                  tiqueteParaImprimir.Vendedor,
                  tiqueteParaImprimir.FechaVenta,
@@ -155,7 +155,7 @@ namespace GestorNegocio
                     };
 
                     salida.Detalle.Add(detalle);
-                    salida.ValorTotal += detalle.ValorTotal;
+                    salida.ValorTotal += detalle.Total;
                     salida.ValorTotalSeguro += detalle.ValorSeguro;
                     salida.ValorTotalTiquete += detalle.ValorTiquete;
                     salida.Cantidad += detalle.CantidadTiquetes;
