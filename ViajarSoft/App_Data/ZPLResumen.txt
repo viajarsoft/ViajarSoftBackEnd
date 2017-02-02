@@ -9,8 +9,8 @@
 ^FO130,140^FDLiquidación:{0}^FS 
 ^FO130,160^FDOficina:{1}^FS 
 ^FO130,180^FDFecha Liq.:{2}^FS 
-^FO130,200^FDFecha Ing.:{3}^FS 
-^FO130,240^FD{4}^FS 
+^FX Encabezado, sin logo {3}
+^FO130,200^FD{4}^FS 
 ^FO100,280,1^FDValor^FS 
 ^FO100,300,1^FDTiquete^FS 
 ^FO250,280,1^FDValor^FS 

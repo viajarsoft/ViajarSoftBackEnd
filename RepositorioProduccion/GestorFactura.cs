@@ -324,11 +324,11 @@ namespace RepositorioProduccion
                         {
                             ImpresionLiquidacion nuevaImpresionLiquidacion = new ImpresionLiquidacion();
 
-                            nuevaImpresionLiquidacion.CodigoVendedor = itemOperacion["vendedor"].ToString();
+                            nuevaImpresionLiquidacion.CodigoVendedor = itemOperacion["A008_NOMTAQUI"].ToString();
                             nuevaImpresionLiquidacion.ValorTiquete = decimal.Parse(itemOperacion["A050_VALTIQUE"].ToString());
                             nuevaImpresionLiquidacion.Cantidad = int.Parse(itemOperacion["cantidad"].ToString());
                             nuevaImpresionLiquidacion.NumeroLiquidacion = itemOperacion["nroliqui"].ToString();
-                            nuevaImpresionLiquidacion.CodigoTipoTiquete = itemOperacion["A050_TIPOTIQUE"].ToString();
+                            nuevaImpresionLiquidacion.CodigoTipoTiquete = itemOperacion["a017_descri"].ToString();
                             nuevaImpresionLiquidacion.ValorSeguro = decimal.Parse(itemOperacion["valorseg"].ToString());
                             nuevaImpresionLiquidacion.CodigoTipoBus = itemOperacion["A050_TIPOBUS"].ToString();
                             nuevaImpresionLiquidacion.CodigoOficina = itemOperacion["codoficina"].ToString();
