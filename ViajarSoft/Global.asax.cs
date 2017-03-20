@@ -20,5 +20,7 @@ namespace ViajarSoft
             var previousSelector = GlobalConfiguration.Configuration.Services.GetService(typeof(IHttpControllerSelector)) as IHttpControllerSelector;
             GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerSelector), new HeaderVersionControllerSelector(previousSelector, GlobalConfiguration.Configuration));
         }
+
+        
     }
 }

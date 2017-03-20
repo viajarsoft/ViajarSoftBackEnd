@@ -11,6 +11,8 @@ using InterfasesFachada;
 using System.Net.Http;
 using GestorConfiguracion;
 using Newtonsoft.Json;
+using log4net;
+using System.Reflection;
 
 
 namespace ViajarSoft.Controllers.Api.V1
@@ -19,16 +21,20 @@ namespace ViajarSoft.Controllers.Api.V1
     {
         private IFachadaFactura fachadaFactura;
         private IFachadaSeguridad fachadaSeguridad;
+        private ILog log;
 
         public FacturaController()
         {
-
+            log4net.Config.XmlConfigurator.Configure();
+            log = LogManager.GetLogger(this.GetType());
         }
 
         public FacturaController(IFachadaFactura fachadaFactura,IFachadaSeguridad fachadaSeguridad)
         {
             this.fachadaFactura = fachadaFactura;
             this.fachadaSeguridad = fachadaSeguridad;
+            log4net.Config.XmlConfigurator.Configure();
+            log = LogManager.GetLogger(this.GetType());
         }
 
 
@@ -67,6 +73,7 @@ namespace ViajarSoft.Controllers.Api.V1
                     respuesta.StatusCode = HttpStatusCode.Unauthorized;
                 }
                 respuestaRuta.Mensaje = ex.Message;
+                log.Error(ex.Message);
             }
             finally
             {
@@ -110,6 +117,7 @@ namespace ViajarSoft.Controllers.Api.V1
                     respuesta.StatusCode = HttpStatusCode.Unauthorized;
                 }
                 respuestaPrecioDestino.Mensaje = ex.Message;
+                log.Error(ex.Message);
             }
             finally
             {
@@ -153,6 +161,7 @@ namespace ViajarSoft.Controllers.Api.V1
                     respuesta.StatusCode = HttpStatusCode.Unauthorized;
                 }
                 respuestaTipoTiquete.Mensaje = ex.Message;
+                log.Error(ex.Message);
             }
             finally
             {
@@ -199,6 +208,7 @@ namespace ViajarSoft.Controllers.Api.V1
                     respuesta.StatusCode = HttpStatusCode.Unauthorized;
                 }
                 respuestaVentaTiquete.Mensaje = ex.Message;
+                log.Error(ex.Message);
             }
             finally
             {
@@ -250,6 +260,7 @@ namespace ViajarSoft.Controllers.Api.V1
                     respuesta.StatusCode = HttpStatusCode.Unauthorized;
                 }
                 respuestaVentasPorLiquidar.Mensaje = ex.Message;
+                log.Error(ex.Message);
             }
             finally
             {
@@ -303,6 +314,7 @@ namespace ViajarSoft.Controllers.Api.V1
                     respuesta.StatusCode = HttpStatusCode.Unauthorized;
                 }
                 respuestaLiquidacionTaquillero.Mensaje = ex.Message;
+                log.Error(ex.Message);
             }
             finally
             {

@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 using Modelo.Seguridad;
 using GestorConfiguracion;
 using System.Data.SqlClient;
+using log4net;
+using System.Reflection;
 
 namespace ViajarSoft.Controllers.Api.V1
 {
@@ -18,16 +20,20 @@ namespace ViajarSoft.Controllers.Api.V1
     {
         private IFachadaSeguridad fachadaSeguridad;
         private IFachadaFactura fachadaFactura;
+        private ILog log;
 
         public SeguridadController()
         {
-
+            log4net.Config.XmlConfigurator.Configure();
+            log = LogManager.GetLogger(this.GetType());
         }
 
         public SeguridadController(IFachadaSeguridad fachadaSeguridad,IFachadaFactura fachadaFactura)
         {
             this.fachadaSeguridad = fachadaSeguridad;
             this.fachadaFactura = fachadaFactura;
+            log4net.Config.XmlConfigurator.Configure();
+            log = LogManager.GetLogger(this.GetType());
         }
 
         [HttpPost]
@@ -51,6 +57,7 @@ namespace ViajarSoft.Controllers.Api.V1
                     respuesta.StatusCode = HttpStatusCode.Unauthorized;
                 }
                 respuestaIngreso.Mensaje = ex.Message;
+                log.Error(ex.Message);
             }
             finally
             {
